@@ -205,13 +205,39 @@
 
     .nav-brand {
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      line-height: 1.1;
     }
 
-    .nav-brand img {
-      height: 42px;
-      width: auto;
-      object-fit: contain;
+    .nav-brand .brand-main {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .nav-brand .joh {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-brand .creatives {
+      font-size: 1.5rem;
+      font-weight: 300;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-brand .tagline {
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 2px;
     }
 
     .nav-links {
@@ -1269,7 +1295,11 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="#" class="nav-brand">
-        <img src="logo joh's creatives.jpg" alt="Joh's Creatives Logo">
+        <span class="brand-main">
+          <span class="joh">Joh's</span>
+          <span class="creatives">Creatives</span>
+        </span>
+        <span class="tagline">code · create · innovate</span>
       </a>
       <div class="nav-links" id="navLinks">
         <a href="#home" class="active">Home</a>
@@ -1651,7 +1681,11 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#" class="nav-brand">
-            <img src="logo joh's creatives.jpg" alt="Joh's Creatives Logo">
+            <span class="brand-main">
+              <span class="joh">Joh's</span>
+              <span class="creatives">Creatives</span>
+            </span>
+            <span class="tagline">code · create · innovate</span>
           </a>
           <p>Crafting Code, Bringing Ideas to Life. Professional web development services for businesses and individuals worldwide.</p>
           <div class="footer-social">
