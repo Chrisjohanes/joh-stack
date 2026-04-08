@@ -2,7 +2,7 @@
 
 Professional portfolio & landing page for freelance web development services. Built with modern dark/light theme, interactive features, and comprehensive sections.
 
-**🌐 Live Demo**: [https://chrisjohanes.github.io/joh-creatives/](https://chrisjohanes.github.io/joh-creatives/)
+**🌐 Live Demo**: [https://chrisjohanes.github.io/joh-stack/](https://chrisjohanes.github.io/joh-stack/)
 
 ## ✨ Features
 
