@@ -5,12 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Joh's Stack | Crafting Code, Bringing Ideas to Life</title>
   <link rel="icon" type="image/jpeg" href="Joh's Stack.jpg">
-  <meta name="description" content="Professional freelance web development services. JavaScript, Laravel, PHP, HTML, CSS expertise.">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Professional freelance web developer specializing in JavaScript, Laravel, PHP, HTML, CSS. Custom web solutions, responsive design, and full-stack development.">
+  <meta name="keywords" content="web developer, javascript developer, laravel developer, php developer, freelance web developer, frontend developer, fullstack developer, jakarta">
+  <meta name="author" content="Christian Johanes">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://johstack.com/">
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Joh's Stack | Professional Web Development Services">
+  <meta property="og:description" content="Professional freelance web developer specializing in JavaScript, Laravel, PHP. Let's build something amazing together.">
+  <meta property="og:image" content="https://johstack.com/Joh's Stack.jpg">
+  <meta property="og:url" content="https://johstack.com/">
+  <meta property="og:site_name" content="Joh's Stack">
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Joh's Stack | Professional Web Development Services">
+  <meta name="twitter:description" content="Professional freelance web developer specializing in JavaScript, Laravel, PHP.">
+  <meta name="twitter:image" content="https://johstack.com/Joh's Stack.jpg">
+  
+  <!-- Performance: Preload Critical Resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" as="style">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Joh's Stack",
+    "description": "Professional web development services specializing in JavaScript, Laravel, and modern front-end solutions.",
+    "url": "https://johstack.com/",
+    "image": "https://johstack.com/Joh's Stack.jpg",
+    "founder": {
+      "@type": "Person",
+      "name": "Christian Johanes"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Jakarta",
+      "addressCountry": "ID"
+    },
+    "priceRange": "Rp500K - Rp3M+",
+    "serviceType": ["Web Development", "JavaScript Development", "Laravel Development", "PHP Development"]
+  }
+  </script>
+  
   <style>
+    /* ========== PAGE LOADER ========== */
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-primary);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    
+    .page-loader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .loader-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid var(--border-color);
+      border-top-color: var(--accent-primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* ========== PROGRESS BAR ========== */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--accent-gradient);
+      z-index: 10000;
+      transition: width 0.3s ease;
+    }
     /* ========== CSS VARIABLES ========== */
     :root {
       --bg-primary: #0a0a0f;
@@ -35,6 +123,30 @@
       --radius-lg: 20px;
       --radius-xl: 28px;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ========== LIGHT MODE VARIABLES ========== */
+    [data-theme="light"] {
+      --bg-primary: #f8f9fa;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #f1f3f5;
+      --bg-card: #ffffff;
+      --text-primary: #212529;
+      --text-secondary: #495057;
+      --text-muted: #868e96;
+      --border-color: rgba(0, 0, 0, 0.1);
+      --border-hover: rgba(245, 158, 11, 0.5);
+      --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 8px 40px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    [data-theme="light"] .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    [data-theme="light"] .hero-bg::before {
+      opacity: 0.3;
     }
 
     /* ========== RESET & BASE ========== */
@@ -1454,21 +1566,647 @@
       opacity: 1;
       visibility: visible;
     }
+
+    /* ========== THEME TOGGLE ========== */
+    .theme-toggle {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      background: var(--accent-primary);
+      border-color: var(--accent-primary);
+      color: var(--bg-primary);
+      transform: rotate(15deg);
+    }
+
+    /* ========== TYPING ANIMATION ========== */
+    .typing-cursor {
+      display: inline-block;
+      animation: blink 0.8s ease-in-out infinite;
+      color: var(--accent-primary);
+      font-weight: 100;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ========== PARTICLE CANVAS ========== */
+    #particleCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ========== SKILL BARS ========== */
+    .skill-bars {
+      margin-top: 32px;
+    }
+
+    .skill-item {
+      margin-bottom: 20px;
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .skill-header h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .skill-header span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .skill-bar {
+      height: 8px;
+      background: var(--bg-tertiary);
+      border-radius: 50px;
+      overflow: hidden;
+    }
+
+    .skill-progress {
+      height: 100%;
+      background: var(--accent-gradient);
+      border-radius: 50px;
+      width: 0%;
+      transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .skill-progress::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* ========== TESTIMONIALS ========== */
+    .testimonials {
+      background: var(--bg-primary);
+    }
+
+    .testimonial-slider {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .testimonial-card {
+      min-width: 100%;
+      padding: 0 20px;
+    }
+
+    .testimonial-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      position: relative;
+    }
+
+    .testimonial-content::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      font-size: 5rem;
+      font-weight: 900;
+      color: var(--accent-primary);
+      opacity: 0.15;
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+
+    .testimonial-text {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .testimonial-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg-primary);
+      font-weight: 800;
+      font-size: 1.3rem;
+    }
+
+    .testimonial-author-info h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .testimonial-author-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .testimonial-stars {
+      color: var(--accent-primary);
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+    }
+
+    .testimonial-controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .testimonial-btn {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .testimonial-btn:hover {
+      background: var(--accent-primary);
+      border-color: var(--accent-primary);
+      color: var(--bg-primary);
+    }
+
+    .testimonial-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .testimonial-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border-color);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .testimonial-dot.active {
+      background: var(--accent-primary);
+      width: 30px;
+      border-radius: 5px;
+    }
+
+    /* ========== ACHIEVEMENTS ========== */
+    .achievements {
+      padding: 60px 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .achievement-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .achievement-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .achievement-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(245, 158, 11, 0.1);
+      border-radius: 50%;
+      font-size: 1.8rem;
+      color: var(--accent-primary);
+    }
+
+    .achievement-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .achievement-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ========== BLOG PREVIEW ========== */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .blog-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-md);
+    }
+
+    .blog-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 24px;
+    }
+
+    .blog-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .blog-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .blog-card p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .blog-link {
+      color: var(--accent-primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .blog-link:hover {
+      gap: 10px;
+    }
+
+    /* ========== NEWSLETTER ========== */
+    .newsletter {
+      padding: 80px 0;
+      background: var(--accent-gradient);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .newsletter::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .newsletter-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .newsletter-content h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 900;
+      margin-bottom: 12px;
+      color: var(--bg-primary);
+    }
+
+    .newsletter-content p {
+      font-size: 1.05rem;
+      color: rgba(10, 10, 15, 0.8);
+      margin-bottom: 32px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 14px 20px;
+      background: var(--bg-primary);
+      border: 2px solid transparent;
+      border-radius: var(--radius-xl);
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+    }
+
+    .newsletter-form input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .newsletter-form button {
+      padding: 14px 28px;
+      background: var(--bg-primary);
+      color: var(--accent-primary);
+      border: none;
+      border-radius: var(--radius-xl);
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .newsletter-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ========== SERVICE CONFIGURATOR ========== */
+    .configurator {
+      background: var(--bg-secondary);
+    }
+
+    .config-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .config-step {
+      display: none;
+    }
+
+    .config-step.active {
+      display: block;
+      animation: fadeInUp 0.4s ease;
+    }
+
+    .config-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .config-option {
+      background: var(--bg-tertiary);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .config-option:hover {
+      border-color: var(--accent-primary);
+      transform: translateY(-4px);
+    }
+
+    .config-option.selected {
+      border-color: var(--accent-primary);
+      background: rgba(245, 158, 11, 0.1);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .config-option i {
+      font-size: 2rem;
+      color: var(--accent-primary);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .config-option h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .config-option p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .config-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 32px;
+      gap: 12px;
+    }
+
+    .config-price {
+      text-align: center;
+      padding: 24px;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      border-radius: var(--radius-md);
+      margin-top: 24px;
+    }
+
+    .config-price h3 {
+      font-size: 2rem;
+      font-weight: 900;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+
+    .config-price p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* ========== FORM VALIDATION ========== */
+    .form-group input.is-valid,
+    .form-group textarea.is-valid {
+      border-color: #10b981;
+    }
+
+    .form-group input.is-invalid,
+    .form-group textarea.is-invalid {
+      border-color: #ef4444;
+    }
+
+    .form-error {
+      display: block;
+      color: #ef4444;
+      font-size: 0.82rem;
+      margin-top: 6px;
+    }
+
+    .form-success {
+      display: block;
+      color: #10b981;
+      font-size: 0.82rem;
+      margin-top: 6px;
+    }
+
+    /* ========== ANIMATED GRADIENT BORDERS ========== */
+    .gradient-border {
+      position: relative;
+    }
+
+    .gradient-border::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      padding: 2px;
+      background: var(--accent-gradient);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      border-radius: inherit;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .gradient-border:hover::before {
+      opacity: 1;
+    }
+
+    /* ========== RESPONSIVE UPDATES ========== */
+    @media (max-width: 768px) {
+      .theme-toggle {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-form button {
+        width: 100%;
+      }
+
+      .achievements-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .achievements-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Skip to Content Link -->
+  <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:100000;background:var(--accent-primary);color:var(--bg-primary);padding:12px 24px;border-radius:8px;font-weight:600;">Skip to content</a>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="#" class="nav-brand">
+      <a href="#" class="nav-brand" aria-label="Joh's Stack Home">
         <span class="brand-main">
           <span class="joh">Joh's</span>
           <span class="stack">Stack</span>
         </span>
         <span class="tagline">code · create · innovate</span>
       </a>
-      <div class="nav-links" id="navLinks">
+      <div class="nav-links" id="navLinks" role="navigation" aria-label="Main navigation">
         <a href="#home" class="active">Home</a>
         <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
@@ -1476,9 +2214,21 @@
         <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <i class="fas fa-bars" id="navIcon"></i>
-      </button>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+        <div class="nav-cta">
+          <a href="#contact" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i>
+            Hire Me
+          </a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars" id="navIcon"></i>
+        </button>
+      </div>
     </div>
   </nav>
   <div class="nav-overlay" id="navOverlay"></div>
@@ -1487,15 +2237,17 @@
   <section class="hero" id="home">
     <div class="hero-bg">
       <div class="hero-grid"></div>
+      <!-- Particle Canvas -->
+      <canvas id="particleCanvas" aria-hidden="true"></canvas>
     </div>
-    <div class="container">
+    <div class="container" id="main-content">
       <div class="hero-content">
         <div class="hero-badge">
           <i class="fas fa-bolt"></i>
           Available for Freelance Projects
         </div>
         <h1 class="hero-title">
-          Crafting Code,<br><span class="gradient-text">Bringing Ideas to Life</span>
+          <span id="typingText" class="gradient-text"></span><span class="typing-cursor">|</span>
         </h1>
         <p class="hero-subtitle">
           Professional web development services specializing in JavaScript, Laravel, and modern front-end solutions. Let's build something amazing together.
@@ -1731,6 +2483,45 @@
               </div>
             </div>
           </div>
+          <!-- Skill Bars -->
+          <div class="skill-bars">
+            <div class="skill-item">
+              <div class="skill-header">
+                <h4><i class="fab fa-js-square me-2"></i>JavaScript</h4>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <h4><i class="fab fa-laravel me-2"></i>Laravel</h4>
+                <span>80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="80"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <h4><i class="fab fa-react me-2"></i>React</h4>
+                <span>75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="75"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <h4><i class="fab fa-css3-alt me-2"></i>CSS/Tailwind</h4>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" data-width="90"></div>
+              </div>
+            </div>
+          </div>
           <a href="#contact" class="btn btn-primary">
             <i class="fas fa-envelope"></i>
             Let's Work Together
@@ -1821,6 +2612,316 @@
         </div>
       </div>
       <p class="pricing-note reveal">* Harga bersifat estimasi dan dapat berubah sesuai kebutuhan proyek. <a href="#contact" style="color: var(--accent-primary); font-weight: 600;">Hubungi saya</a> untuk konsultasi gratis.</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">What <span class="gradient-text">Clients Say</span></h2>
+        <p class="section-subtitle">Real feedback from clients I've had the pleasure to work with.</p>
+      </div>
+      <div class="testimonial-slider reveal">
+        <div class="testimonial-track" id="testimonialTrack">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">"Christian delivered our helpdesk ticketing system flawlessly. His attention to detail and communication throughout the project was exceptional. Highly recommended!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">AR</div>
+                <div class="testimonial-author-info">
+                  <h4>Ahmad Rizki</h4>
+                  <p>IT Manager, PT Tech Solutions</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimonial-text">"The task manager app he built for us exceeded our expectations. Clean code, well-documented, and delivered on time. Will definitely work with him again."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">SF</div>
+                <div class="testimonial-author-info">
+                  <h4>Sarah Fitriani</h4>
+                  <p>Project Manager, StartupXYZ</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <p class="testimonial-text">"Professional, responsive, and creative. He transformed our outdated website into a modern, mobile-friendly platform. Great value for the price!"</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">BW</div>
+                <div class="testimonial-author-info">
+                  <h4>Budi Wijaya</h4>
+                  <p>Owner, Budi's Restaurant</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-controls">
+          <button class="testimonial-btn" id="testimonialPrev" aria-label="Previous testimonial">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="testimonial-dots" id="testimonialDots">
+            <div class="testimonial-dot active" data-index="0"></div>
+            <div class="testimonial-dot" data-index="1"></div>
+            <div class="testimonial-dot" data-index="2"></div>
+          </div>
+          <button class="testimonial-btn" id="testimonialNext" aria-label="Next testimonial">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS SECTION -->
+  <section class="achievements" id="achievements">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Achievements</span>
+        <h2 class="section-title">Milestones & <span class="gradient-text">Certifications</span></h2>
+      </div>
+      <div class="achievements-grid reveal">
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <i class="fab fa-laravel"></i>
+          </div>
+          <h4>Laravel Certified</h4>
+          <p>Completed Laravel professional certification</p>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <i class="fab fa-js-square"></i>
+          </div>
+          <h4>JavaScript Mastery</h4>
+          <p>Advanced JavaScript & ES6+ certified</p>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <h4>10+ Projects</h4>
+          <p>Successfully delivered web projects</p>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <h4>5-Star Rating</h4>
+          <p>Consistently rated 5 stars by clients</p>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <i class="fab fa-github"></i>
+          </div>
+          <h4>Open Source</h4>
+          <p>Active GitHub contributor</p>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h4>Continuous Learner</h4>
+          <p>Always upskilling with latest tech</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE CONFIGURATOR -->
+  <section class="section configurator" id="configurator">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Quote Calculator</span>
+        <h2 class="section-title">Configure Your <span class="gradient-text">Project</span></h2>
+        <p class="section-subtitle">Select your requirements to get an instant price estimate.</p>
+      </div>
+      <div class="config-wrapper reveal">
+        <!-- Step 1: Service Type -->
+        <div class="config-step active" data-step="1">
+          <h3 style="text-align:center;margin-bottom:8px;">What type of service do you need?</h3>
+          <p style="text-align:center;color:var(--text-muted);font-size:0.9rem;">Choose one option</p>
+          <div class="config-options" data-config="service">
+            <div class="config-option" data-value="static" data-price="500">
+              <i class="fas fa-file-code"></i>
+              <h4>Static Website</h4>
+              <p>Landing page, company profile, portfolio</p>
+            </div>
+            <div class="config-option" data-value="dynamic" data-price="1500">
+              <i class="fas fa-database"></i>
+              <h4>Dynamic Web App</h4>
+              <p>CMS, dashboard, web application</p>
+            </div>
+            <div class="config-option" data-value="ecommerce" data-price="3000">
+              <i class="fas fa-shopping-cart"></i>
+              <h4>E-Commerce</h4>
+              <p>Online store, payment gateway</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Features -->
+        <div class="config-step" data-step="2">
+          <h3 style="text-align:center;margin-bottom:8px;">What features do you need?</h3>
+          <p style="text-align:center;color:var(--text-muted);font-size:0.9rem;">Select all that apply</p>
+          <div class="config-options" data-config="features" data-multiple="true">
+            <div class="config-option" data-value="responsive" data-price="100">
+              <i class="fas fa-mobile-alt"></i>
+              <h4>Responsive Design</h4>
+              <p>Mobile & tablet optimized</p>
+            </div>
+            <div class="config-option" data-value="cms" data-price="300">
+              <i class="fas fa-cogs"></i>
+              <h4>Admin Dashboard</h4>
+              <p>Content management system</p>
+            </div>
+            <div class="config-option" data-value="seo" data-price="150">
+              <i class="fas fa-search"></i>
+              <h4>SEO Optimization</h4>
+              <p>Search engine friendly</p>
+            </div>
+            <div class="config-option" data-value="chat" data-price="50">
+              <i class="fab fa-whatsapp"></i>
+              <h4>WhatsApp Integration</h4>
+              <p>Direct chat widget</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Timeline -->
+        <div class="config-step" data-step="3">
+          <h3 style="text-align:center;margin-bottom:8px;">What's your timeline?</h3>
+          <p style="text-align:center;color:var(--text-muted);font-size:0.9rem;">Choose your deadline</p>
+          <div class="config-options" data-config="timeline">
+            <div class="config-option" data-value="urgent" data-multiplier="1.5">
+              <i class="fas fa-bolt"></i>
+              <h4>Urgent (3-5 days)</h4>
+              <p>Priority development</p>
+            </div>
+            <div class="config-option" data-value="normal" data-multiplier="1">
+              <i class="fas fa-calendar-alt"></i>
+              <h4>Normal (1-2 weeks)</h4>
+              <p>Standard timeline</p>
+            </div>
+            <div class="config-option" data-value="flexible" data-multiplier="0.9">
+              <i class="fas fa-clock"></i>
+              <h4>Flexible (3+ weeks)</h4>
+              <p>No rush, best value</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Price Display -->
+        <div class="config-price" id="configPrice" style="display:none;">
+          <h3 id="configPriceAmount">Rp 0</h3>
+          <p>Estimated starting price</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="config-nav">
+          <button class="btn btn-outline" id="configPrev" style="display:none;">
+            <i class="fas fa-arrow-left"></i>
+            Previous
+          </button>
+          <div style="flex:1;"></div>
+          <button class="btn btn-primary" id="configNext">
+            Next
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG PREVIEW SECTION -->
+  <section class="section" id="blog">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Blog</span>
+        <h2 class="section-title">Latest <span class="gradient-text">Articles</span></h2>
+        <p class="section-subtitle">Insights, tutorials, and thoughts on web development.</p>
+      </div>
+      <div class="blog-grid">
+        <div class="blog-card reveal gradient-border">
+          <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=600&q=80" alt="JavaScript ES2024 Features" class="blog-image" loading="lazy">
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span><i class="fas fa-calendar me-1"></i>Apr 5, 2026</span>
+              <span><i class="fas fa-clock me-1"></i>5 min read</span>
+            </div>
+            <h3>Top 10 JavaScript ES2024 Features You Should Know</h3>
+            <p>Explore the latest features in JavaScript ES2024 that make development more efficient and enjoyable.</p>
+            <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="blog-card reveal gradient-border">
+          <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=600&q=80" alt="Laravel 12 Guide" class="blog-image" loading="lazy">
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span><i class="fas fa-calendar me-1"></i>Mar 28, 2026</span>
+              <span><i class="fas fa-clock me-1"></i>8 min read</span>
+            </div>
+            <h3>Getting Started with Laravel 12: A Complete Guide</h3>
+            <p>Everything you need to know to start building robust web applications with Laravel 12.</p>
+            <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="blog-card reveal gradient-border">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Web Performance Tips" class="blog-image" loading="lazy">
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span><i class="fas fa-calendar me-1"></i>Mar 15, 2026</span>
+              <span><i class="fas fa-clock me-1"></i>6 min read</span>
+            </div>
+            <h3>15 Web Performance Tips for Faster Loading Websites</h3>
+            <p>Practical tips to optimize your website's performance and improve user experience.</p>
+            <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER SECTION -->
+  <section class="newsletter" id="newsletter">
+    <div class="container">
+      <div class="newsletter-content reveal">
+        <h2>Stay Updated with My Latest Work</h2>
+        <p>Subscribe to get tutorials, tips, and project updates directly in your inbox.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Enter your email address" required aria-label="Email address for newsletter">
+          <button type="submit">Subscribe <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -1950,6 +3051,7 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#blog">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
@@ -2213,7 +3315,397 @@
       }, 5000);
     }
 
-    // ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
+    // ========== PAGE LOADER ==========
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('pageLoader');
+      setTimeout(() => {
+        loader.classList.add('fade-out');
+      }, 500);
+    });
+
+    // ========== PROGRESS BAR ==========
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    });
+
+    // ========== THEME TOGGLE ==========
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    themeIcon.className = currentTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+
+    themeToggle.addEventListener('click', () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      const newTheme = theme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      themeIcon.className = newTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+    });
+
+    // ========== TYPING ANIMATION ==========
+    const typingTexts = [
+      'Crafting Code',
+      'Bringing Ideas to Life',
+      'Innovating Digital Experiences',
+      'Building Modern Web Apps'
+    ];
+    let typingTextIndex = 0;
+    let typingCharIndex = 0;
+    let isDeleting = false;
+    const typingElement = document.getElementById('typingText');
+
+    function typeText() {
+      const currentText = typingTexts[typingTextIndex];
+      
+      if (isDeleting) {
+        typingElement.textContent = currentText.substring(0, typingCharIndex - 1);
+        typingCharIndex--;
+      } else {
+        typingElement.textContent = currentText.substring(0, typingCharIndex + 1);
+        typingCharIndex++;
+      }
+
+      let typeSpeed = isDeleting ? 50 : 100;
+
+      if (!isDeleting && typingCharIndex === currentText.length) {
+        typeSpeed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && typingCharIndex === 0) {
+        isDeleting = false;
+        typingTextIndex = (typingTextIndex + 1) % typingTexts.length;
+        typeSpeed = 500;
+      }
+
+      setTimeout(typeText, typeSpeed);
+    }
+
+    typeText();
+
+    // ========== PARTICLE ANIMATION ==========
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = Math.random() * 0.5 - 0.25;
+        this.speedY = Math.random() * 0.5 - 0.25;
+        this.opacity = Math.random() * 0.5 + 0.2;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+      }
+
+      draw() {
+        const theme = document.documentElement.getAttribute('data-theme');
+        const color = theme === 'light' ? 'rgba(245, 158, 11,' : 'rgba(245, 158, 11,';
+        ctx.fillStyle = color + this.opacity + ')';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      const particleCount = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
+      
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function connectParticles() {
+      const maxDistance = 120;
+      
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < maxDistance) {
+            const opacity = (1 - distance / maxDistance) * 0.3;
+            const theme = document.documentElement.getAttribute('data-theme');
+            const color = theme === 'light' ? `rgba(245, 158, 11, ${opacity})` : `rgba(245, 158, 11, ${opacity})`;
+            
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+
+      connectParticles();
+      requestAnimationFrame(animateParticles);
+    }
+
+    initParticles();
+    animateParticles();
+
+    // ========== SKILL BARS ANIMATION ==========
+    const skillBars = document.querySelectorAll('.skill-progress');
+    let skillsAnimated = false;
+
+    function animateSkills() {
+      if (skillsAnimated) return;
+
+      skillBars.forEach(bar => {
+        const rect = bar.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          skillsAnimated = true;
+          const width = bar.getAttribute('data-width');
+          setTimeout(() => {
+            bar.style.width = width + '%';
+          }, 200);
+        }
+      });
+    }
+
+    window.addEventListener('scroll', animateSkills);
+
+    // ========== TESTIMONIAL SLIDER ==========
+    let currentTestimonial = 0;
+    const testimonialTrack = document.getElementById('testimonialTrack');
+    const testimonialPrev = document.getElementById('testimonialPrev');
+    const testimonialNext = document.getElementById('testimonialNext');
+    const testimonialDots = document.querySelectorAll('.testimonial-dot');
+    const totalTestimonials = 3;
+
+    function updateTestimonial(index) {
+      currentTestimonial = index;
+      testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+      
+      testimonialDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    testimonialNext.addEventListener('click', () => {
+      updateTestimonial((currentTestimonial + 1) % totalTestimonials);
+    });
+
+    testimonialPrev.addEventListener('click', () => {
+      updateTestimonial((currentTestimonial - 1 + totalTestimonials) % totalTestimonials);
+    });
+
+    testimonialDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        updateTestimonial(parseInt(dot.getAttribute('data-index')));
+      });
+    });
+
+    // Auto-play testimonials
+    setInterval(() => {
+      updateTestimonial((currentTestimonial + 1) % totalTestimonials);
+    }, 6000);
+
+    // ========== SERVICE CONFIGURATOR ==========
+    let configStep = 1;
+    const configData = {
+      service: { value: null, price: 0 },
+      features: { values: [], price: 0 },
+      timeline: { value: null, multiplier: 1 }
+    };
+
+    const configOptions = document.querySelectorAll('.config-option');
+    const configNext = document.getElementById('configNext');
+    const configPrev = document.getElementById('configPrev');
+    const configPrice = document.getElementById('configPrice');
+    const configPriceAmount = document.getElementById('configPriceAmount');
+
+    configOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        const parent = option.parentElement;
+        const isMultiple = parent.getAttribute('data-multiple') === 'true';
+        const configType = parent.getAttribute('data-config');
+
+        if (isMultiple) {
+          option.classList.toggle('selected');
+          const value = option.getAttribute('data-value');
+          const price = parseInt(option.getAttribute('data-price') || 0);
+
+          if (option.classList.contains('selected')) {
+            configData[configType].values.push(value);
+            configData[configType].price += price;
+          } else {
+            configData[configType].values = configData[configType].values.filter(v => v !== value);
+            configData[configType].price -= price;
+          }
+        } else {
+          parent.querySelectorAll('.config-option').forEach(opt => opt.classList.remove('selected'));
+          option.classList.add('selected');
+          configData[configType].value = option.getAttribute('data-value');
+          configData[configType].price = parseInt(option.getAttribute('data-price') || 0);
+          configData[configType].multiplier = parseFloat(option.getAttribute('data-multiplier') || 1);
+        }
+
+        updateConfigPrice();
+      });
+    });
+
+    function updateConfigPrice() {
+      const basePrice = configData.service.price + configData.features.price;
+      const finalPrice = Math.round(basePrice * configData.timeline.multiplier);
+      
+      if (configData.service.value) {
+        configPrice.style.display = 'block';
+        configPriceAmount.textContent = 'Rp ' + finalPrice.toLocaleString('id-ID') + 'K';
+      }
+    }
+
+    configNext.addEventListener('click', () => {
+      if (configStep < 3) {
+        document.querySelector(`.config-step[data-step="${configStep}"]`).classList.remove('active');
+        configStep++;
+        document.querySelector(`.config-step[data-step="${configStep}"]`).classList.add('active');
+        
+        configPrev.style.display = configStep > 1 ? 'block' : 'none';
+        
+        if (configStep === 3) {
+          configNext.innerHTML = 'Get Quote <i class="fas fa-calculator"></i>';
+        }
+      } else {
+        // Send to WhatsApp with config
+        const message = `Halo, saya tertarik dengan proyek:
+- Tipe: ${configData.service.value}
+- Features: ${configData.features.values.join(', ')}
+- Timeline: ${configData.timeline.value}
+- Estimasi: ${configPriceAmount.textContent}`;
+        
+        const waUrl = `https://wa.me/6282111915723?text=${encodeURIComponent(message)}`;
+        window.open(waUrl, '_blank');
+      }
+    });
+
+    configPrev.addEventListener('click', () => {
+      if (configStep > 1) {
+        document.querySelector(`.config-step[data-step="${configStep}"]`).classList.remove('active');
+        configStep--;
+        document.querySelector(`.config-step[data-step="${configStep}"]`).classList.add('active');
+        
+        configPrev.style.display = configStep > 1 ? 'block' : 'none';
+        configNext.innerHTML = 'Next <i class="fas fa-arrow-right"></i>';
+        configPrice.style.display = 'none';
+      }
+    });
+
+    // ========== REAL-TIME FORM VALIDATION ==========
+    const formInputs = document.querySelectorAll('#contactForm input, #contactForm textarea');
+
+    formInputs.forEach(input => {
+      input.addEventListener('blur', validateField);
+      input.addEventListener('input', validateField);
+    });
+
+    function validateField(e) {
+      const field = e.target;
+      const value = field.value.trim();
+      const fieldName = field.name;
+
+      // Remove existing feedback
+      field.classList.remove('is-valid', 'is-invalid');
+      const existingFeedback = field.parentElement.querySelector('.form-error, .form-success');
+      if (existingFeedback) existingFeedback.remove();
+
+      // Skip if empty
+      if (!value) {
+        field.classList.remove('is-valid', 'is-invalid');
+        return;
+      }
+
+      let isValid = true;
+      let errorMessage = '';
+
+      // Validation rules
+      if (fieldName === 'email') {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+          isValid = false;
+          errorMessage = 'Please enter a valid email address';
+        }
+      } else if (fieldName === 'name' && value.length < 2) {
+        isValid = false;
+        errorMessage = 'Name must be at least 2 characters';
+      } else if (fieldName === 'message' && value.length < 10) {
+        isValid = false;
+        errorMessage = 'Message must be at least 10 characters';
+      }
+
+      if (isValid) {
+        field.classList.add('is-valid');
+        const success = document.createElement('span');
+        success.className = 'form-success';
+        success.innerHTML = '<i class="fas fa-check-circle"></i> Looks good!';
+        field.parentElement.appendChild(success);
+      } else {
+        field.classList.add('is-invalid');
+        const error = document.createElement('span');
+        error.className = 'form-error';
+        error.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${errorMessage}`;
+        field.parentElement.appendChild(error);
+      }
+    }
+
+    // ========== NEWSLETTER FORM ==========
+    const newsletterForm = document.getElementById('newsletterForm');
+    
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input[type="email"]').value;
+        
+        if (email) {
+          showNotification('Thank you for subscribing! Check your inbox for updates.', 'success');
+          this.reset();
+        }
+      });
+    }
+
+    // ========== GRADIENT BORDER ON HOVER ==========
+    const gradientCards = document.querySelectorAll('.gradient-border');
+    
+    gradientCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.position = 'relative';
+      });
+    });
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const target = document.querySelector(this.getAttribute('href'));
