@@ -1,1364 +1,1011 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joh's Stack | Full-Stack Development, Delivered.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    :root {
-      --navy-dark: #0a0e27;
-      --navy: #121638;
-      --navy-light: #1a1f4a;
-      --orange: #ff6b35;
-      --orange-light: #ff8c5a;
-      --teal: #00c9b1;
-      --white: #f8f9fa;
-      --gray: #a0aec0;
-      --gray-dark: #718096;
-      --shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-      --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.2);
-      --transition: all 0.3s ease;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--navy-dark);
-      color: var(--white);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    section {
-      padding: 100px 0;
-    }
-
-    .section-label {
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: var(--orange);
-      margin-bottom: 12px;
-      background: rgba(255, 107, 53, 0.1);
-      padding: 6px 16px;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 107, 53, 0.3);
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 5vw, 2.8rem);
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .section-subtitle {
-      font-size: 1.1rem;
-      color: var(--gray);
-      max-width: 600px;
-      margin: 0 auto 60px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 32px;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--orange), var(--orange-light));
-      color: white;
-      box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(255, 107, 53, 0.5);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--orange);
-      color: var(--orange);
-      transform: translateY(-3px);
-    }
-
-    .btn-sm {
-      padding: 10px 24px;
-      font-size: 0.9rem;
-    }
-
-    /* NAVBAR */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 20px 0;
-      transition: var(--transition);
-      background: transparent;
-    }
-
-    .navbar.scrolled {
-      background: rgba(10, 14, 39, 0.95);
-      backdrop-filter: blur(20px);
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .navbar .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-brand {
-      font-size: 1.6rem;
-      font-weight: 800;
-    }
-
-    .nav-brand span {
-      background: linear-gradient(135deg, var(--orange), var(--teal));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      padding: 8px 18px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--gray);
-      border-radius: 50px;
-      transition: var(--transition);
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--white);
-    }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--white);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding-top: 80px;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -30%;
-      right: -20%;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(255, 107, 53, 0.15), transparent 70%);
-      animation: pulse 8s ease-in-out infinite;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -30%;
-      left: -20%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(0, 201, 177, 0.1), transparent 70%);
-      animation: pulse 10s ease-in-out infinite reverse;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.5; }
-      50% { transform: scale(1.15); opacity: 0.8; }
-    }
-
-    .hero .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 20px;
-      background: rgba(255, 107, 53, 0.1);
-      border: 1px solid rgba(255, 107, 53, 0.3);
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--orange);
-      margin-bottom: 28px;
-    }
-
-    .hero-title {
-      font-size: clamp(2.5rem, 7vw, 4.5rem);
-      font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 24px;
-    }
-
-    .hero-title .highlight {
-      background: linear-gradient(135deg, var(--orange), var(--teal));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
-      color: var(--gray);
-      margin-bottom: 40px;
-      max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 48px;
-      margin-top: 64px;
-    }
-
-    .hero-stat h3 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--orange), var(--teal));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-stat p {
-      font-size: 0.9rem;
-      color: var(--gray-dark);
-      margin-top: 4px;
-    }
-
-    /* SERVICES */
-    .services {
-      background: var(--navy);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-    }
-
-    .service-card {
-      background: var(--navy-light);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      padding: 36px;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(135deg, var(--orange), var(--teal));
-      opacity: 0;
-      transition: var(--transition);
-    }
-
-    .service-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(255, 107, 53, 0.3);
-      box-shadow: 0 0 30px rgba(255, 107, 53, 0.15);
-    }
-
-    .service-card:hover::before {
-      opacity: 1;
-    }
-
-    .service-icon {
-      width: 64px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 107, 53, 0.1);
-      border-radius: 12px;
-      font-size: 1.6rem;
-      color: var(--orange);
-      margin-bottom: 24px;
-      transition: var(--transition);
-    }
-
-    .service-card:hover .service-icon {
-      background: linear-gradient(135deg, var(--orange), var(--teal));
-      color: white;
-      transform: scale(1.1);
-    }
-
-    .service-card h3 {
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .service-card p {
-      color: var(--gray);
-      font-size: 0.95rem;
-      margin-bottom: 20px;
-    }
-
-    .service-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .service-tag {
-      padding: 4px 12px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 50px;
-      font-size: 0.78rem;
-      color: var(--gray-dark);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    /* PORTFOLIO */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 28px;
-    }
-
-    .portfolio-card {
-      background: var(--navy-light);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: var(--transition);
-    }
-
-    .portfolio-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(255, 107, 53, 0.3);
-      box-shadow: var(--shadow);
-    }
-
-    .portfolio-image {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      overflow: hidden;
-      background: linear-gradient(135deg, var(--navy), var(--navy-light));
-    }
-
-    .portfolio-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: var(--transition);
-    }
-
-    .portfolio-card:hover .portfolio-image img {
-      transform: scale(1.05);
-    }
-
-    .portfolio-category {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      padding: 6px 14px;
-      background: var(--orange);
-      color: white;
-      font-size: 0.75rem;
-      font-weight: 600;
-      border-radius: 50px;
-    }
-
-    .portfolio-content {
-      padding: 24px;
-    }
-
-    .portfolio-content h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .portfolio-content p {
-      color: var(--gray);
-      font-size: 0.95rem;
-      margin-bottom: 16px;
-      line-height: 1.6;
-    }
-
-    .portfolio-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .portfolio-tech span {
-      padding: 4px 12px;
-      background: rgba(0, 201, 177, 0.1);
-      border: 1px solid rgba(0, 201, 177, 0.3);
-      border-radius: 50px;
-      font-size: 0.78rem;
-      color: var(--teal);
-      font-weight: 500;
-    }
-
-    .portfolio-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .portfolio-actions .btn {
-      flex: 1;
-      justify-content: center;
-      min-width: 140px;
-    }
-
-    .btn-github {
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--white);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .btn-github:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: var(--white);
-    }
-
-    .btn-demo {
-      background: linear-gradient(135deg, var(--orange), var(--orange-light));
-      color: white;
-    }
-
-    .btn-demo:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
-    }
-
-    /* ABOUT */
-    .about {
-      background: var(--navy);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about-image {
-      position: relative;
-    }
-
-    .about-image-wrapper {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      aspect-ratio: 4 / 5;
-      background: linear-gradient(135deg, var(--navy-light), var(--navy-dark));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .about-image-wrapper i {
-      font-size: 8rem;
-      color: var(--orange);
-      opacity: 0.3;
-    }
-
-    .about-float-card {
-      position: absolute;
-      bottom: -20px;
-      right: -20px;
-      background: var(--navy-light);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 20px 28px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      box-shadow: var(--shadow);
-    }
-
-    .about-float-card .number {
-      font-size: 2.2rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--orange), var(--teal));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .about-float-card .label {
-      font-size: 0.85rem;
-      color: var(--gray);
-    }
-
-    .about-content h2 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    .about-content > p {
-      color: var(--gray);
-      font-size: 1.05rem;
-      margin-bottom: 32px;
-    }
-
-    .about-features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-bottom: 36px;
-    }
-
-    .about-feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-    }
-
-    .about-feature-icon {
-      width: 42px;
-      height: 42px;
-      min-width: 42px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 107, 53, 0.1);
-      border-radius: 8px;
-      color: var(--orange);
-      font-size: 1rem;
-    }
-
-    .about-feature h4 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .about-feature p {
-      font-size: 0.82rem;
-      color: var(--gray-dark);
-    }
-
-    /* TECH STACK */
-    .tech-stack {
-      padding: 80px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .tech-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .tech-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 16px 28px;
-      background: var(--navy-light);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 50px;
-      transition: var(--transition);
-    }
-
-    .tech-item:hover {
-      border-color: rgba(255, 107, 53, 0.4);
-      transform: translateY(-4px);
-      box-shadow: 0 0 20px rgba(255, 107, 53, 0.15);
-    }
-
-    .tech-item i {
-      font-size: 1.5rem;
-      color: var(--orange);
-    }
-
-    .tech-item span {
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    /* CONTACT */
-    .contact {
-      background: var(--navy);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 48px;
-    }
-
-    .contact-info h3 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    .contact-info > p {
-      color: var(--gray);
-      margin-bottom: 36px;
-    }
-
-    .contact-details {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .contact-detail {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .contact-detail-icon {
-      width: 50px;
-      height: 50px;
-      min-width: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 107, 53, 0.1);
-      border-radius: 12px;
-      color: var(--orange);
-      font-size: 1.1rem;
-    }
-
-    .contact-detail h4 {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--gray-dark);
-      margin-bottom: 2px;
-    }
-
-    .contact-detail p {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .contact-form-wrapper {
-      background: var(--navy-light);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      padding: 40px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 500;
-      margin-bottom: 8px;
-      color: var(--gray);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 14px 18px;
-      background: var(--navy-dark);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      color: var(--white);
-      font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      transition: var(--transition);
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--orange);
-      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: var(--gray-dark);
-    }
-
-    .form-group textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-
-    .form-submit {
-      width: 100%;
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--navy-dark);
-      padding: 40px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .footer-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-brand {
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-
-    .footer-brand span {
-      background: linear-gradient(135deg, var(--orange), var(--teal));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .footer-text {
-      color: var(--gray-dark);
-      font-size: 0.9rem;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 12px;
-    }
-
-    .social-links a {
-      width: 42px;
-      height: 42px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      color: var(--gray);
-      font-size: 1.1rem;
-      transition: var(--transition);
-    }
-
-    .social-links a:hover {
-      background: var(--orange);
-      border-color: var(--orange);
-      color: white;
-      transform: translateY(-3px);
-    }
-
-    /* MOBILE RESPONSIVE */
-    @media (max-width: 991px) {
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      Joh's Stack | Christian Johanes — IT Developer & Web Developer
+    </title>
+
+    <link rel="icon" type="image/jpeg" href="Joh's Stack.jpg" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Christian Johanes — IT Developer and Web Developer specializing in Laravel, PHP, JavaScript, MySQL, and responsive web development."
+    />
+
+    <meta
+      name="keywords"
+      content="Christian Johanes, IT Developer, Web Developer, Laravel Developer, PHP Developer, JavaScript Developer, Jakarta"
+    />
+
+    <meta name="author" content="Christian Johanes" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://chrisjohanes.github.io/joh-stack/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Joh's Stack | Christian Johanes" />
+
+    <meta
+      property="og:description"
+      content="Portfolio of Christian Johanes — IT Developer and Web Developer working with Laravel, PHP, JavaScript, and MySQL."
+    />
+
+    <meta
+      property="og:image"
+      content="https://chrisjohanes.github.io/joh-stack/Joh's Stack.jpg"
+    />
+
+    <meta
+      property="og:url"
+      content="https://chrisjohanes.github.io/joh-stack/"
+    />
+
+    <meta property="og:site_name" content="Joh's Stack" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta
+      name="twitter:title"
+      content="Joh's Stack | Professional Web Development Services"
+    />
+
+    <meta
+      name="twitter:description"
+      content="Professional freelance web developer specializing in JavaScript, Laravel, PHP."
+    />
+
+    <meta
+      name="twitter:image"
+      content="https://chrisjohanes.github.io/joh-stack/Joh's Stack.jpg"
+    />
+
+    <!-- Fonts -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
+      as="style"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Christian Johanes",
+        "url": "https://chrisjohanes.github.io/joh-stack/",
+        "jobTitle": "IT Developer / Web Developer",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Jakarta",
+          "addressCountry": "ID"
+        },
+        "sameAs": [
+          "https://github.com/Chrisjohanes",
+          "https://www.linkedin.com/in/christianjohanes",
+          "https://www.instagram.com/johstack/"
+        ]
       }
+    </script>
 
-      .about-image {
-        order: -1;
-        max-width: 400px;
-        margin: 0 auto;
-      }
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-      .hero-stats {
-        gap: 32px;
-      }
-    }
+  <body>
+    <!-- Skip to Content -->
+    <a href="#main-content" class="skip-link" aria-label="Skip to main content">
+      Skip to content
+    </a>
 
-    @media (max-width: 768px) {
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 280px;
-        height: 100vh;
-        background: var(--navy);
-        flex-direction: column;
-        padding: 100px 30px 30px;
-        gap: 8px;
-        transition: var(--transition);
-        border-left: 1px solid rgba(255, 255, 255, 0.05);
-      }
-
-      .nav-links.active {
-        right: 0;
-      }
-
-      .nav-links a {
-        width: 100%;
-        padding: 12px 18px;
-      }
-
-      .nav-toggle {
-        display: block;
-        z-index: 1001;
-      }
-
-      .nav-cta {
-        margin-left: 0;
-        width: 100%;
-      }
-
-      .nav-cta .btn {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .hero-stats {
-        flex-wrap: wrap;
-        gap: 24px;
-      }
-
-      .hero-stat {
-        text-align: center;
-        min-width: 120px;
-      }
-
-      .about-features {
-        grid-template-columns: 1fr;
-      }
-
-      .portfolio-actions {
-        flex-direction: column;
-      }
-
-      .portfolio-actions .btn {
-        min-width: 100%;
-      }
-
-      .footer-content {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      section {
-        padding: 70px 0;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .hero-buttons .btn {
-        width: 100%;
-        max-width: 300px;
-      }
-
-      .services-grid,
-      .portfolio-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-form-wrapper {
-        padding: 24px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="container">
-      <a href="#" class="nav-brand"><span>Joh's Stack</span></a>
-      <ul class="nav-links">
-        <li><a href="#hero" class="active">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li class="nav-cta"><a href="#contact" class="btn btn-primary btn-sm">Hire Me</a></li>
-      </ul>
-      <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader" aria-hidden="true">
+      <div class="loader-spinner"></div>
     </div>
-  </nav>
 
-  <!-- HERO -->
-  <section id="hero" class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge"><i class="fas fa-sparkles"></i> Available for Freelance Projects</div>
-        <h1 class="hero-title">Full-Stack Development,<br><span class="highlight">Delivered.</span></h1>
-        <p class="hero-subtitle">I build fast, scalable, and beautiful web applications using modern JavaScript, Laravel, and clean HTML/CSS. From concept to deployment — let's make it real.</p>
-        <div class="hero-buttons">
-          <a href="#portfolio" class="btn btn-primary"><i class="fas fa-code"></i> View My Work</a>
-          <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+    <!-- Scroll Progress -->
+    <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================== -->
+
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+      <div class="container">
+        <!-- Brand -->
+        <a href="#home" class="nav-brand" aria-label="Joh's Stack Home">
+          <span class="brand-main">
+            <span class="joh">Joh's</span>
+            <span class="stack">Stack</span>
+          </span>
+
+          <span class="tagline"> code · create · innovate </span>
+        </a>
+
+        <!-- Navigation -->
+        <div class="nav-links" id="navLinks">
+          <a href="#home" class="active"> Home </a>
+
+          <a href="#services"> Services </a>
+
+          <a href="#skills"> Tech Stack </a>
+
+          <a href="#about"> About </a>
+
+          <a href="#case-studies"> Case Studies </a>
+
+          <a href="#contact"> Contact </a>
         </div>
-        <div class="hero-stats">
-          <div class="hero-stat"><h3>50+</h3><p>Projects Completed</p></div>
-          <div class="hero-stat"><h3>3+</h3><p>Years Experience</p></div>
-          <div class="hero-stat"><h3>100%</h3><p>Client Satisfaction</p></div>
+
+        <!-- Actions -->
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle dark/light mode"
+            title="Toggle theme"
+          >
+            <i class="fas fa-moon" id="themeIcon"></i>
+          </button>
+
+          <a href="#contact" class="btn btn-primary nav-hire">
+            <i class="fas fa-paper-plane"></i>
+            Hire Me
+          </a>
+
+          <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+          >
+            <i class="fas fa-bars" id="navIcon"></i>
+          </button>
         </div>
       </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- SERVICES -->
-  <section id="services" class="services">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">What I Offer</span>
-        <h2 class="section-title">Services That <span class="highlight">Deliver Results</span></h2>
-        <p class="section-subtitle">From front-end interfaces to back-end architecture, I provide end-to-end web development solutions.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon"><i class="fab fa-js"></i></div>
-          <h3>JavaScript Applications</h3>
-          <p>Dynamic, interactive web apps built with vanilla JavaScript or modern frameworks. From task managers to real-time dashboards.</p>
-          <div class="service-tags">
-            <span class="service-tag">Vanilla JS</span>
-            <span class="service-tag">ES6+</span>
-            <span class="service-tag">API Integration</span>
-            <span class="service-tag">DOM Manipulation</span>
-          </div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fab fa-php"></i></div>
-          <h3>Laravel & PHP Development</h3>
-          <p>Robust back-end systems with Laravel — from CMS platforms and admin panels to RESTful APIs and database architecture.</p>
-          <div class="service-tags">
-            <span class="service-tag">Laravel</span>
-            <span class="service-tag">PHP</span>
-            <span class="service-tag">MySQL</span>
-            <span class="service-tag">REST APIs</span>
-          </div>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fab fa-html5"></i></div>
-          <h3>HTML & CSS Websites</h3>
-          <p>Pixel-perfect, responsive websites and landing pages that look amazing on every device. Clean code, fast load times.</p>
-          <div class="service-tags">
-            <span class="service-tag">HTML5</span>
-            <span class="service-tag">CSS3</span>
-            <span class="service-tag">Responsive</span>
-            <span class="service-tag">Animations</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <div class="nav-overlay" id="navOverlay"></div>
 
-  <!-- PORTFOLIO -->
-  <section id="portfolio" class="portfolio">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">My Work</span>
-        <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
-        <p class="section-subtitle">Here's a selection of projects I've built. Each one showcases different skills and technologies.</p>
-      </div>
-      <div class="portfolio-grid">
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
 
-        <!-- Project 1: TaskFlow -->
-        <div class="portfolio-card">
-          <div class="portfolio-image">
-            <img src="https://images.unsplash.com/photo-1611224923853-80b0c7e8b84a?w=600&h=375&fit=crop" alt="TaskFlow App Screenshot">
-            <span class="portfolio-category">Web App</span>
-          </div>
-          <div class="portfolio-content">
-            <h3>TaskFlow App</h3>
-            <p>A clean and intuitive task management web application. Create, organize, and track tasks with a drag-and-drop interface. Supports local storage persistence and real-time filtering.</p>
-            <div class="portfolio-tech">
-              <span>JavaScript</span>
-              <span>HTML5</span>
-              <span>CSS3</span>
-              <span>LocalStorage</span>
-            </div>
-            <div class="portfolio-actions">
-              <a href="#" class="btn btn-sm btn-demo" onclick="alert('Live demo coming soon!'); return false;"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-              <a href="#" class="btn btn-sm btn-github" onclick="alert('GitHub link coming soon!'); return false;"><i class="fab fa-github"></i> Code</a>
-            </div>
-          </div>
+    <main id="main-content">
+      <!-- =====================================================
+           HERO
+      ====================================================== -->
+
+      <section class="hero" id="home">
+        <div class="hero-bg">
+          <div class="hero-grid"></div>
+
+          <canvas id="particleCanvas" aria-hidden="true"></canvas>
         </div>
 
-        <!-- Project 2: Laravel Blog CMS -->
-        <div class="portfolio-card">
-          <div class="portfolio-image">
-            <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=375&fit=crop" alt="Laravel Blog CMS Screenshot">
-            <span class="portfolio-category">Full Stack</span>
-          </div>
-          <div class="portfolio-content">
-            <h3>Laravel Blog CMS</h3>
-            <p>A full-featured content management system built with Laravel. Includes admin dashboard, role-based access, rich text editor, category management, and a public-facing blog.</p>
-            <div class="portfolio-tech">
-              <span>Laravel</span>
-              <span>PHP</span>
-              <span>MySQL</span>
-              <span>Blade</span>
-            </div>
-            <div class="portfolio-actions">
-              <a href="#" class="btn btn-sm btn-demo" onclick="alert('Live demo coming soon!'); return false;"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-              <a href="#" class="btn btn-sm btn-github" onclick="alert('GitHub link coming soon!'); return false;"><i class="fab fa-github"></i> Code</a>
-            </div>
-          </div>
-        </div>
+        <div class="container">
+          <div class="hero-content">
+            <!-- Badge -->
+            <div class="hero-badge">
+              <i class="fas fa-code"></i>
 
-        <!-- Project 3: Portfolio 2025 -->
-        <div class="portfolio-card">
-          <div class="portfolio-image">
-            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&h=375&fit=crop" alt="Portfolio 2025 Screenshot">
-            <span class="portfolio-category">Frontend</span>
-          </div>
-          <div class="portfolio-content">
-            <h3>Portfolio 2025</h3>
-            <p>A modern, fully responsive portfolio website with smooth animations, dark mode, and a clean layout. Built with semantic HTML, custom CSS, and vanilla JavaScript.</p>
-            <div class="portfolio-tech">
-              <span>HTML5</span>
-              <span>CSS3</span>
-              <span>JavaScript</span>
-              <span>Responsive</span>
+              IT Developer · Web Developer
             </div>
-            <div class="portfolio-actions">
-              <a href="#" class="btn btn-sm btn-demo" onclick="alert('Live demo coming soon!'); return false;"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-              <a href="#" class="btn btn-sm btn-github" onclick="alert('GitHub link coming soon!'); return false;"><i class="fab fa-github"></i> Code</a>
-            </div>
-          </div>
-        </div>
 
-        <!-- Project 4: EcoShop -->
-        <div class="portfolio-card">
-          <div class="portfolio-image">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=375&fit=crop" alt="EcoShop Screenshot">
-            <span class="portfolio-category">E-Commerce</span>
-          </div>
-          <div class="portfolio-content">
-            <h3>EcoShop</h3>
-            <p>A responsive e-commerce front-end prototype with product filtering, cart functionality, and a checkout flow. Designed with a sustainability-focused aesthetic.</p>
-            <div class="portfolio-tech">
-              <span>JavaScript</span>
-              <span>HTML5</span>
-              <span>CSS Grid</span>
-              <span>Flexbox</span>
-            </div>
-            <div class="portfolio-actions">
-              <a href="#" class="btn btn-sm btn-demo" onclick="alert('Live demo coming soon!'); return false;"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-              <a href="#" class="btn btn-sm btn-github" onclick="alert('GitHub link coming soon!'); return false;"><i class="fab fa-github"></i> Code</a>
-            </div>
-          </div>
-        </div>
+            <!-- Heading -->
+            <h1 class="hero-title">
+              Hi, I'm
 
-      </div>
-    </div>
-  </section>
+              <span class="gradient-text"> Christian Johanes </span>.
 
-  <!-- ABOUT -->
-  <section id="about" class="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-image">
-          <div class="about-image-wrapper">
-            <i class="fas fa-laptop-code"></i>
-          </div>
-          <div class="about-float-card">
-            <div class="number">3+</div>
-            <div class="label">Years of<br>Experience</div>
-          </div>
-        </div>
-        <div class="about-content">
-          <span class="section-label">About Me</span>
-          <h2>Hi, I'm <span class="highlight">Christian</span> — the dev behind Joh's Stack</h2>
-          <p>I'm a freelance full-stack web developer passionate about building clean, efficient, and user-friendly web applications. I specialize in JavaScript, Laravel, and modern front-end technologies. Whether it's a simple landing page or a complex web app, I bring the same level of care and attention to every project.</p>
-          <div class="about-features">
-            <div class="about-feature">
-              <div class="about-feature-icon"><i class="fas fa-bolt"></i></div>
-              <div>
-                <h4>Fast Delivery</h4>
-                <p>Quick turnaround without sacrificing quality</p>
+              <br />
+
+              I Build
+
+              <span id="typingText" class="gradient-text"></span>
+
+              <span class="typing-cursor"> | </span>
+            </h1>
+
+            <!-- Description -->
+            <p class="hero-subtitle">
+              I build practical, responsive, and maintainable web solutions
+              using Laravel, PHP, JavaScript, MySQL, and modern front-end
+              technologies — with a focus on turning business requirements into
+              reliable digital experiences.
+            </p>
+
+            <!-- Buttons -->
+            <div class="hero-buttons">
+              <a href="#case-studies" class="btn btn-primary">
+                <i class="fas fa-folder-open"></i>
+                Explore My Work
+              </a>
+
+              <a href="#contact" class="btn btn-outline">
+                <i class="fas fa-paper-plane"></i>
+                Let's Connect
+              </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <h3 class="counter" data-target="4">0</h3>
+
+                <p>Core Technologies</p>
               </div>
-            </div>
-            <div class="about-feature">
-              <div class="about-feature-icon"><i class="fas fa-mobile-alt"></i></div>
-              <div>
-                <h4>Responsive Design</h4>
-                <p>Looks great on every device size</p>
-              </div>
-            </div>
-            <div class="about-feature">
-              <div class="about-feature-icon"><i class="fas fa-comments"></i></div>
-              <div>
-                <h4>Clear Communication</h4>
-                <p>Regular updates throughout the project</p>
-              </div>
-            </div>
-            <div class="about-feature">
-              <div class="about-feature-icon"><i class="fas fa-headset"></i></div>
-              <div>
-                <h4>Ongoing Support</h4>
-                <p>Post-launch maintenance available</p>
-              </div>
-            </div>
-          </div>
-          <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Let's Work Together</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- TECH STACK -->
-  <div class="tech-stack">
-    <div class="container">
-      <div class="tech-grid">
-        <div class="tech-item"><i class="fab fa-js"></i><span>JavaScript</span></div>
-        <div class="tech-item"><i class="fab fa-php"></i><span>PHP</span></div>
-        <div class="tech-item"><i class="fab fa-laravel"></i><span>Laravel</span></div>
-        <div class="tech-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
-        <div class="tech-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
-        <div class="tech-item"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
-        <div class="tech-item"><i class="fas fa-database"></i><span>MySQL</span></div>
-        <div class="tech-item"><i class="fab fa-git-alt"></i><span>Git</span></div>
-        <div class="tech-item"><i class="fab fa-node-js"></i><span>Node.js</span></div>
-        <div class="tech-item"><i class="fab fa-github"></i><span>GitHub</span></div>
-      </div>
-    </div>
-  </div>
+              <div class="hero-stat">
+                <h3 class="counter" data-target="4">0</h3>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Get in Touch</span>
-        <h2 class="section-title">Let's Build Something <span class="highlight">Amazing</span></h2>
-        <p class="section-subtitle">Have a project in mind? Fill out the form below and I'll get back to you within 24 hours.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>Contact Information</h3>
-          <p>Feel free to reach out through any of these channels. I'm always open to discussing new projects and creative ideas.</p>
-          <div class="contact-details">
-            <div class="contact-detail">
-              <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
-              <div>
-                <h4>Email</h4>
-                <p>hello@johstack.com</p>
+                <p>Key Areas</p>
               </div>
-            </div>
-            <div class="contact-detail">
-              <div class="contact-detail-icon"><i class="fab fa-whatsapp"></i></div>
-              <div>
-                <h4>WhatsApp</h4>
-                <p>+62 812 3456 7890</p>
-              </div>
-            </div>
-            <div class="contact-detail">
-              <div class="contact-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
-              <div>
-                <h4>Location</h4>
-                <p>Jakarta, Indonesia (Remote Worldwide)</p>
-              </div>
-            </div>
-            <div class="contact-detail">
-              <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
-              <div>
-                <h4>Response Time</h4>
-                <p>Within 24 hours</p>
+
+              <div class="hero-stat">
+                <h3 class="counter" data-target="1">0</h3>
+
+                <p>Professional Role</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="contact-form-wrapper">
-          <form id="contactForm">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" placeholder="John Doe" required>
+      </section>
+
+      <!-- =====================================================
+           SERVICES
+      ====================================================== -->
+
+      <section class="section services" id="services">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-label"> What I Do </span>
+
+            <h2 class="section-title">
+              Building
+
+              <span class="gradient-text"> Practical Digital Solutions </span>
+            </h2>
+
+            <p class="section-subtitle">
+              My work focuses on building and improving web systems, interfaces,
+              and business-oriented applications.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <!-- Service 1 -->
+            <article class="service-card reveal">
+              <div class="service-icon">
+                <i class="fab fa-laravel"></i>
+              </div>
+
+              <h3>Laravel & PHP Development</h3>
+
+              <p>
+                Developing backend logic, modules, workflows, CRUD features, and
+                business applications using Laravel and PHP.
+              </p>
+
+              <div class="service-tags">
+                <span class="service-tag"> Laravel </span>
+
+                <span class="service-tag"> PHP </span>
+
+                <span class="service-tag"> MySQL </span>
+
+                <span class="service-tag"> REST API </span>
+              </div>
+            </article>
+
+            <!-- Service 2 -->
+            <article class="service-card reveal">
+              <div class="service-icon">
+                <i class="fab fa-js-square"></i>
+              </div>
+
+              <h3>JavaScript Development</h3>
+
+              <p>
+                Creating interactive interfaces, dynamic components, validation,
+                data tables, and frontend workflows with JavaScript.
+              </p>
+
+              <div class="service-tags">
+                <span class="service-tag"> JavaScript </span>
+
+                <span class="service-tag"> DOM </span>
+
+                <span class="service-tag"> AJAX </span>
+
+                <span class="service-tag"> ES6+ </span>
+              </div>
+            </article>
+
+            <!-- Service 3 -->
+            <article class="service-card reveal">
+              <div class="service-icon">
+                <i class="fas fa-database"></i>
+              </div>
+
+              <h3>Database & System Development</h3>
+
+              <p>
+                Designing database structures and integrating application logic
+                with MySQL to support reliable business processes.
+              </p>
+
+              <div class="service-tags">
+                <span class="service-tag"> MySQL </span>
+
+                <span class="service-tag"> SQL </span>
+
+                <span class="service-tag"> Migration </span>
+
+                <span class="service-tag"> Seeder </span>
+              </div>
+            </article>
+
+            <!-- Service 4 -->
+            <article class="service-card reveal">
+              <div class="service-icon">
+                <i class="fas fa-layer-group"></i>
+              </div>
+
+              <h3>UI/UX Implementation</h3>
+
+              <p>
+                Translating requirements and designs into responsive interfaces
+                with attention to usability, consistency, and maintainability.
+              </p>
+
+              <div class="service-tags">
+                <span class="service-tag"> HTML5 </span>
+
+                <span class="service-tag"> CSS3 </span>
+
+                <span class="service-tag"> Bootstrap </span>
+
+                <span class="service-tag"> Responsive </span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           TECH STACK
+      ====================================================== -->
+
+      <section class="tech-stack" id="skills">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-label"> Tech Stack </span>
+
+            <h2 class="section-title">
+              Tools I
+
+              <span class="gradient-text"> Work With </span>
+            </h2>
+
+            <p class="section-subtitle">
+              Technologies I use across development, database work, and frontend
+              implementation.
+            </p>
+          </div>
+
+          <div class="tech-grid reveal">
+            <div class="tech-item">
+              <i class="fab fa-js-square"></i>
+
+              <span> JavaScript </span>
             </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" placeholder="john@example.com" required>
+
+            <div class="tech-item">
+              <i class="fab fa-laravel"></i>
+
+              <span> Laravel </span>
             </div>
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" placeholder="Project Inquiry">
+
+            <div class="tech-item">
+              <i class="fab fa-php"></i>
+
+              <span> PHP </span>
             </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" placeholder="Tell me about your project..." required></textarea>
+
+            <div class="tech-item">
+              <i class="fas fa-database"></i>
+
+              <span> MySQL </span>
             </div>
-            <button type="submit" class="btn btn-primary form-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
-          </form>
+
+            <div class="tech-item">
+              <i class="fab fa-html5"></i>
+
+              <span> HTML5 </span>
+            </div>
+
+            <div class="tech-item">
+              <i class="fab fa-css3-alt"></i>
+
+              <span> CSS3 </span>
+            </div>
+
+            <div class="tech-item">
+              <i class="fab fa-bootstrap"></i>
+
+              <span> Bootstrap </span>
+            </div>
+
+            <div class="tech-item">
+              <i class="fab fa-git-alt"></i>
+
+              <span> Git </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           ABOUT
+      ====================================================== -->
+
+      <section class="section about" id="about">
+        <div class="container">
+          <div class="about-grid">
+            <!-- Profile -->
+            <div class="about-image reveal">
+              <div class="about-image-wrapper">
+                <img
+                  src="foto_profil/2.jpg"
+                  alt="Christian Johanes"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="about-float-card">
+                <div class="number">B.S.</div>
+
+                <div class="label">
+                  Computer<br />
+                  Science
+                </div>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="about-content reveal">
+              <span class="section-label"> About Me </span>
+
+              <h2>
+                Bridging
+
+                <span class="gradient-text"> Business & Technology </span>
+              </h2>
+
+              <p>
+                I'm Christian Johanes, a Computer Science graduate from Bina
+                Nusantara University, Jakarta, with a strong interest in web
+                development, UI/UX implementation, database development, and
+                business-oriented IT solutions.
+              </p>
+
+              <p>
+                In my current role as an IT Developer Intern, I work on web
+                features, UI/UX improvements, frontend and backend development,
+                and modules for business process digitalization. I enjoy turning
+                operational requirements into systems that are clear, usable,
+                and maintainable.
+              </p>
+
+              <div class="about-features">
+                <div class="about-feature">
+                  <div class="about-feature-icon">
+                    <i class="fas fa-code"></i>
+                  </div>
+
+                  <div>
+                    <h4>Clean Development</h4>
+
+                    <p>Structured code with maintainability in mind.</p>
+                  </div>
+                </div>
+
+                <div class="about-feature">
+                  <div class="about-feature-icon">
+                    <i class="fas fa-database"></i>
+                  </div>
+
+                  <div>
+                    <h4>Database Focus</h4>
+
+                    <p>
+                      Comfortable working with SQL and MySQL-backed
+                      applications.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="about-feature">
+                  <div class="about-feature-icon">
+                    <i class="fas fa-desktop"></i>
+                  </div>
+
+                  <div>
+                    <h4>UI/UX Implementation</h4>
+
+                    <p>
+                      Building responsive interfaces from business requirements.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="about-feature">
+                  <div class="about-feature-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                  </div>
+
+                  <div>
+                    <h4>Continuous Learning</h4>
+
+                    <p>
+                      Always improving technical and problem-solving skills.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-envelope"></i>
+
+                Let's Work Together
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           CASE STUDIES / NOTION
+      ====================================================== -->
+
+      <section class="section notion-section" id="case-studies">
+        <div class="container">
+          <!-- Header -->
+          <div class="section-header reveal">
+            <span class="section-label"> Case Studies </span>
+
+            <h2 class="section-title">
+              Explore My
+
+              <span class="gradient-text"> Work in Detail </span>
+            </h2>
+
+            <p class="section-subtitle">
+              Explore my projects, professional experience, case studies, and
+              technical work in more detail through my portfolio workspace.
+            </p>
+
+            <!-- External Button -->
+            <div
+              class="notion-actions"
+              style="margin-top: 28px; display: flex; justify-content: center"
+            >
+              <a
+                href="https://material-platinum-585.notion.site/ebd//3eafa85bf80f80a1b6f7e41a49872ca6"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline"
+              >
+                <i class="fas fa-external-link-alt"></i>
+
+                Open Portfolio
+              </a>
+            </div>
+          </div>
+
+          <!-- Notion Card -->
+          <div class="notion-wrapper reveal">
+            <!-- Loading Indicator -->
+            <div class="notion-loading" id="notionLoading">
+              <div class="loader-spinner"></div>
+
+              <span> Loading portfolio... </span>
+            </div>
+
+            <iframe
+              src="https://material-platinum-585.notion.site/ebd//3eafa85bf80f80a1b6f7e41a49872ca6"
+              title="Christian Johanes Portfolio"
+              width="100%"
+              height="850"
+              frameborder="0"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+
+          <!-- Bottom Note -->
+          <div
+            class="notion-note reveal"
+            style="text-align: center; margin-top: 24px"
+          >
+            <p>
+              <i class="fas fa-info-circle"></i>
+
+              More detailed project documentation, experience, and case studies
+              are available inside the portfolio.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           CTA
+      ====================================================== -->
+
+      <section class="cta">
+        <div class="cta-bg"></div>
+
+        <div class="container">
+          <div class="cta-content reveal">
+            <h2>
+              Have a Project or
+
+              <span class="gradient-text"> Opportunity? </span>
+            </h2>
+
+            <p>
+              Let's discuss what you're building, what problem needs to be
+              solved, and how I can contribute.
+            </p>
+
+            <div class="cta-buttons">
+              <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i>
+
+                Get in Touch
+              </a>
+
+              <a href="#case-studies" class="btn btn-outline">
+                <i class="fas fa-folder-open"></i>
+
+                Explore My Work
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           CONTACT
+      ====================================================== -->
+
+      <section class="section contact" id="contact">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-label"> Get In Touch </span>
+
+            <h2 class="section-title">
+              Let's Talk About
+
+              <span class="gradient-text"> Your Project </span>
+            </h2>
+
+            <p class="section-subtitle">
+              Have an idea, project, or opportunity? Feel free to reach out.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <!-- Contact Info -->
+            <div class="contact-info reveal">
+              <h3>Let's Connect</h3>
+
+              <p>
+                I'm open to discussing web development projects, collaboration
+                opportunities, and roles where I can contribute and continue
+                growing.
+              </p>
+
+              <div class="contact-details">
+                <div class="contact-detail">
+                  <div class="contact-detail-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+
+                  <div>
+                    <h4>Email</h4>
+
+                    <p>chrisjohanes21@gmail.com</p>
+                  </div>
+                </div>
+
+                <div class="contact-detail">
+                  <div class="contact-detail-icon">
+                    <i class="fab fa-whatsapp"></i>
+                  </div>
+
+                  <div>
+                    <h4>WhatsApp</h4>
+
+                    <p>+62 821 1191 5723</p>
+                  </div>
+                </div>
+
+                <div class="contact-detail">
+                  <div class="contact-detail-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+
+                  <div>
+                    <h4>Location</h4>
+
+                    <p>Jakarta, Indonesia</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper reveal">
+              <form id="contactForm">
+                <div class="form-group">
+                  <label for="name"> Full Name </label>
+
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email"> Email Address </label>
+
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="subject"> Subject </label>
+
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="Project / Opportunity"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="message"> Message </label>
+
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Tell me a little about your project or opportunity..."
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary form-submit">
+                  <i class="fas fa-paper-plane"></i>
+
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Brand -->
+          <div class="footer-brand">
+            <a href="#home" class="nav-brand" aria-label="Joh's Stack Home">
+              <span class="brand-main">
+                <span class="joh"> Joh's </span>
+
+                <span class="stack"> Stack </span>
+              </span>
+
+              <span class="tagline"> code · create · innovate </span>
+            </a>
+
+            <p>
+              IT Developer & Web Developer focused on building practical digital
+              solutions with Laravel, PHP, JavaScript, and MySQL.
+            </p>
+
+            <div class="footer-social">
+              <a
+                href="https://www.instagram.com/johstack/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/christianjohanes"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+
+              <a
+                href="https://github.com/Chrisjohanes"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+
+            <ul>
+              <li>
+                <a href="#home"> Home </a>
+              </li>
+
+              <li>
+                <a href="#services"> Services </a>
+              </li>
+
+              <li>
+                <a href="#skills"> Tech Stack </a>
+              </li>
+
+              <li>
+                <a href="#about"> About </a>
+              </li>
+
+              <li>
+                <a href="#case-studies"> Case Studies </a>
+              </li>
+
+              <li>
+                <a href="#contact"> Contact </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Core Skills -->
+          <div class="footer-col">
+            <h4>Core Skills</h4>
+
+            <ul>
+              <li>
+                <a href="#skills"> Laravel / PHP </a>
+              </li>
+
+              <li>
+                <a href="#skills"> JavaScript </a>
+              </li>
+
+              <li>
+                <a href="#skills"> MySQL / SQL </a>
+              </li>
+
+              <li>
+                <a href="#skills"> HTML / CSS </a>
+              </li>
+
+              <li>
+                <a href="#skills"> UI/UX Implementation </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div class="footer-col">
+            <h4>Contact</h4>
+
+            <ul>
+              <li>
+                <i
+                  class="fas fa-envelope me-2"
+                  style="color: var(--accent-primary)"
+                ></i>
+
+                chrisjohanes21@gmail.com
+              </li>
+
+              <li>
+                <i
+                  class="fab fa-whatsapp me-2"
+                  style="color: var(--accent-primary)"
+                ></i>
+
+                +62 821-1191-5723
+              </li>
+
+              <li>
+                <i
+                  class="fas fa-map-marker-alt me-2"
+                  style="color: var(--accent-primary)"
+                ></i>
+
+                Jakarta, Indonesia
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <p>&copy; 2026 Joh's Stack. All rights reserved.</p>
+
+          <div class="footer-bottom-links">
+            <a href="#home"> Back to top </a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div>
-          <div class="footer-brand"><span>Joh's Stack</span></div>
-          <p class="footer-text">&copy; 2025 Joh's Stack. All rights reserved.</p>
-        </div>
-        <div class="social-links">
-          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <!-- =========================================================
+         FLOATING ACTIONS
+    ========================================================== -->
 
-  <script>
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
 
-    // Mobile nav toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    <a
+      href="https://wa.me/6282111915723?text=Halo%20Christian%2C%20saya%20tertarik%20untuk%20berdiskusi%20mengenai%20project%20web%20development."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="whatsapp-float"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
 
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      const icon = navToggle.querySelector('i');
-      icon.classList.toggle('fa-bars');
-      icon.classList.toggle('fa-times');
-    });
+      <span class="wa-tooltip"> 💬 Chat di WhatsApp </span>
+    </a>
 
-    // Close mobile menu on link click
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        const icon = navToggle.querySelector('i');
-        icon.classList.add('fa-bars');
-        icon.classList.remove('fa-times');
-      });
-    });
-
-    // Active nav link on scroll
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.pageYOffset;
-      sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 150;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
-        if (navLink) {
-          navLink.classList.toggle('active', scrollY > sectionTop && scrollY <= sectionTop + sectionHeight);
-        }
-      });
-    });
-
-    // Contact form submit
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thank you! I\'ll get back to you soon.');
-      this.reset();
-    });
-
-    // Scroll reveal animation
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.service-card, .portfolio-card, .about-feature, .tech-item, .contact-detail').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(el);
-    });
-  </script>
-
-</body>
+    <!-- Main JavaScript -->
+    <script src="public/js/main.js"></script>
+  </body>
 </html>
