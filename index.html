@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>
       Joh's Stack | Christian Johanes — IT Developer & Web Developer
     </title>
+
     <link rel="icon" type="image/jpeg" href="Joh's Stack.jpg" />
 
     <!-- SEO Meta Tags -->
@@ -13,64 +15,79 @@
       name="description"
       content="Christian Johanes — IT Developer and Web Developer specializing in Laravel, PHP, JavaScript, MySQL, and responsive web development."
     />
+
     <meta
       name="keywords"
       content="Christian Johanes, IT Developer, Web Developer, Laravel Developer, PHP Developer, JavaScript Developer, Jakarta"
     />
+
     <meta name="author" content="Christian Johanes" />
     <meta name="robots" content="index, follow" />
+
     <link rel="canonical" href="https://chrisjohanes.github.io/joh-stack/" />
 
-    <!-- Open Graph Tags -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Joh's Stack | Christian Johanes" />
+
     <meta
       property="og:description"
       content="Portfolio of Christian Johanes — IT Developer and Web Developer working with Laravel, PHP, JavaScript, and MySQL."
     />
+
     <meta
       property="og:image"
       content="https://chrisjohanes.github.io/joh-stack/Joh's Stack.jpg"
     />
+
     <meta
       property="og:url"
       content="https://chrisjohanes.github.io/joh-stack/"
     />
+
     <meta property="og:site_name" content="Joh's Stack" />
 
-    <!-- Twitter Card Tags -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+
     <meta
       name="twitter:title"
       content="Joh's Stack | Professional Web Development Services"
     />
+
     <meta
       name="twitter:description"
       content="Professional freelance web developer specializing in JavaScript, Laravel, PHP."
     />
+
     <meta
       name="twitter:image"
       content="https://chrisjohanes.github.io/joh-stack/Joh's Stack.jpg"
     />
 
-    <!-- Performance: Preload Critical Resources -->
+    <!-- Fonts -->
     <link
       rel="preload"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
       as="style"
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
 
-    <!-- Schema.org Structured Data -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -91,13 +108,15 @@
       }
     </script>
 
+    <!-- Main CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <!-- Skip to Content -->
-    <a href="#main-content" class="skip-link" aria-label="Skip to main content"
-      >Skip to content</a
-    >
+    <a href="#main-content" class="skip-link" aria-label="Skip to main content">
+      Skip to content
+    </a>
 
     <!-- Page Loader -->
     <div class="page-loader" id="pageLoader" aria-hidden="true">
@@ -107,26 +126,38 @@
     <!-- Scroll Progress -->
     <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 
-    <!-- NAVBAR -->
+    <!-- =========================================================
+         NAVBAR
+    ========================================================== -->
+
     <nav class="navbar" id="navbar" aria-label="Main navigation">
       <div class="container">
+        <!-- Brand -->
         <a href="#home" class="nav-brand" aria-label="Joh's Stack Home">
           <span class="brand-main">
             <span class="joh">Joh's</span>
             <span class="stack">Stack</span>
           </span>
-          <span class="tagline">code · create · innovate</span>
+
+          <span class="tagline"> code · create · innovate </span>
         </a>
 
+        <!-- Navigation -->
         <div class="nav-links" id="navLinks">
-          <a href="#home" class="active">Home</a>
-          <a href="#services">Services</a>
-          <a href="#portfolio">Projects</a>
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
+          <a href="#home" class="active"> Home </a>
+
+          <a href="#services"> Services </a>
+
+          <a href="#skills"> Tech Stack </a>
+
+          <a href="#about"> About </a>
+
+          <a href="#case-studies"> Case Studies </a>
+
+          <a href="#contact"> Contact </a>
         </div>
 
+        <!-- Actions -->
         <div class="nav-actions">
           <button
             class="theme-toggle"
@@ -136,10 +167,12 @@
           >
             <i class="fas fa-moon" id="themeIcon"></i>
           </button>
+
           <a href="#contact" class="btn btn-primary nav-hire">
             <i class="fas fa-paper-plane"></i>
             Hire Me
           </a>
+
           <button
             class="nav-toggle"
             id="navToggle"
@@ -151,29 +184,50 @@
         </div>
       </div>
     </nav>
+
     <div class="nav-overlay" id="navOverlay"></div>
 
-    <!-- HERO -->
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
     <main id="main-content">
+      <!-- =====================================================
+           HERO
+      ====================================================== -->
+
       <section class="hero" id="home">
         <div class="hero-bg">
           <div class="hero-grid"></div>
+
           <canvas id="particleCanvas" aria-hidden="true"></canvas>
         </div>
+
         <div class="container">
           <div class="hero-content">
+            <!-- Badge -->
             <div class="hero-badge">
               <i class="fas fa-code"></i>
+
               IT Developer · Web Developer
             </div>
 
+            <!-- Heading -->
             <h1 class="hero-title">
               Hi, I'm
-              <span class="gradient-text">Christian Johanes</span>.<br />
-              I Build <span id="typingText" class="gradient-text"></span
-              ><span class="typing-cursor">|</span>
+
+              <span class="gradient-text"> Christian Johanes </span>.
+
+              <br />
+
+              I Build
+
+              <span id="typingText" class="gradient-text"></span>
+
+              <span class="typing-cursor"> | </span>
             </h1>
 
+            <!-- Description -->
             <p class="hero-subtitle">
               I build practical, responsive, and maintainable web solutions
               using Laravel, PHP, JavaScript, MySQL, and modern front-end
@@ -181,28 +235,36 @@
               reliable digital experiences.
             </p>
 
+            <!-- Buttons -->
             <div class="hero-buttons">
-              <a href="#portfolio" class="btn btn-primary">
-                <i class="fas fa-code"></i>
-                View My Projects
+              <a href="#case-studies" class="btn btn-primary">
+                <i class="fas fa-folder-open"></i>
+                Explore My Work
               </a>
+
               <a href="#contact" class="btn btn-outline">
                 <i class="fas fa-paper-plane"></i>
                 Let's Connect
               </a>
             </div>
 
+            <!-- Stats -->
             <div class="hero-stats">
               <div class="hero-stat">
                 <h3 class="counter" data-target="4">0</h3>
+
                 <p>Core Technologies</p>
               </div>
+
               <div class="hero-stat">
                 <h3 class="counter" data-target="4">0</h3>
-                <p>Featured Projects</p>
+
+                <p>Key Areas</p>
               </div>
+
               <div class="hero-stat">
                 <h3 class="counter" data-target="1">0</h3>
+
                 <p>Professional Role</p>
               </div>
             </div>
@@ -210,15 +272,21 @@
         </div>
       </section>
 
-      <!-- SERVICES -->
+      <!-- =====================================================
+           SERVICES
+      ====================================================== -->
+
       <section class="section services" id="services">
         <div class="container">
           <div class="section-header reveal">
-            <span class="section-label">What I Do</span>
+            <span class="section-label"> What I Do </span>
+
             <h2 class="section-title">
               Building
-              <span class="gradient-text">Practical Digital Solutions</span>
+
+              <span class="gradient-text"> Practical Digital Solutions </span>
             </h2>
+
             <p class="section-subtitle">
               My work focuses on building and improving web systems, interfaces,
               and business-oriented applications.
@@ -226,241 +294,222 @@
           </div>
 
           <div class="services-grid">
+            <!-- Service 1 -->
             <article class="service-card reveal">
-              <div class="service-icon"><i class="fab fa-laravel"></i></div>
+              <div class="service-icon">
+                <i class="fab fa-laravel"></i>
+              </div>
+
               <h3>Laravel & PHP Development</h3>
+
               <p>
                 Developing backend logic, modules, workflows, CRUD features, and
                 business applications using Laravel and PHP.
               </p>
+
               <div class="service-tags">
-                <span class="service-tag">Laravel</span>
-                <span class="service-tag">PHP</span>
-                <span class="service-tag">MySQL</span>
-                <span class="service-tag">REST API</span>
+                <span class="service-tag"> Laravel </span>
+
+                <span class="service-tag"> PHP </span>
+
+                <span class="service-tag"> MySQL </span>
+
+                <span class="service-tag"> REST API </span>
               </div>
             </article>
 
+            <!-- Service 2 -->
             <article class="service-card reveal">
-              <div class="service-icon"><i class="fab fa-js-square"></i></div>
+              <div class="service-icon">
+                <i class="fab fa-js-square"></i>
+              </div>
+
               <h3>JavaScript Development</h3>
+
               <p>
                 Creating interactive interfaces, dynamic components, validation,
                 data tables, and frontend workflows with JavaScript.
               </p>
+
               <div class="service-tags">
-                <span class="service-tag">JavaScript</span>
-                <span class="service-tag">DOM</span>
-                <span class="service-tag">AJAX</span>
-                <span class="service-tag">ES6+</span>
+                <span class="service-tag"> JavaScript </span>
+
+                <span class="service-tag"> DOM </span>
+
+                <span class="service-tag"> AJAX </span>
+
+                <span class="service-tag"> ES6+ </span>
               </div>
             </article>
 
+            <!-- Service 3 -->
             <article class="service-card reveal">
-              <div class="service-icon"><i class="fas fa-database"></i></div>
+              <div class="service-icon">
+                <i class="fas fa-database"></i>
+              </div>
+
               <h3>Database & System Development</h3>
+
               <p>
                 Designing database structures and integrating application logic
                 with MySQL to support reliable business processes.
               </p>
+
               <div class="service-tags">
-                <span class="service-tag">MySQL</span>
-                <span class="service-tag">SQL</span>
-                <span class="service-tag">Migration</span>
-                <span class="service-tag">Seeder</span>
+                <span class="service-tag"> MySQL </span>
+
+                <span class="service-tag"> SQL </span>
+
+                <span class="service-tag"> Migration </span>
+
+                <span class="service-tag"> Seeder </span>
               </div>
             </article>
 
+            <!-- Service 4 -->
             <article class="service-card reveal">
-              <div class="service-icon"><i class="fas fa-layer-group"></i></div>
+              <div class="service-icon">
+                <i class="fas fa-layer-group"></i>
+              </div>
+
               <h3>UI/UX Implementation</h3>
+
               <p>
                 Translating requirements and designs into responsive interfaces
                 with attention to usability, consistency, and maintainability.
               </p>
+
               <div class="service-tags">
-                <span class="service-tag">HTML5</span>
-                <span class="service-tag">CSS3</span>
-                <span class="service-tag">Bootstrap</span>
-                <span class="service-tag">Responsive</span>
+                <span class="service-tag"> HTML5 </span>
+
+                <span class="service-tag"> CSS3 </span>
+
+                <span class="service-tag"> Bootstrap </span>
+
+                <span class="service-tag"> Responsive </span>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- PROJECTS -->
-      <section class="section" id="portfolio">
-        <div class="container">
-          <div class="section-header reveal">
-            <span class="section-label">Selected Work</span>
-            <h2 class="section-title">
-              Projects & <span class="gradient-text">Experience</span>
-            </h2>
-            <p class="section-subtitle">
-              A selection of projects that represent my experience building web
-              applications and business process solutions.
-            </p>
-          </div>
+      <!-- =====================================================
+           TECH STACK
+      ====================================================== -->
 
-          <div class="portfolio-grid">
-            <article class="portfolio-card reveal">
-              <img
-                src="public/images/project1.jpg"
-                alt="Web application project"
-                loading="lazy"
-              />
-              <div class="portfolio-overlay">
-                <span class="portfolio-category">Laravel · PHP · MySQL</span>
-                <h3>OneIS Business Platform</h3>
-                <p>
-                  Developed and maintained modules for an internal business
-                  platform, supporting operational workflows and digitalization.
-                </p>
-                <a href="#contact" class="portfolio-link"
-                  >Discuss the Project <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-
-            <article class="portfolio-card reveal">
-              <img
-                src="public/images/project1.jpg"
-                alt="IT asset handover system"
-                loading="lazy"
-              />
-              <div class="portfolio-overlay">
-                <span class="portfolio-category"
-                  >Laravel · JavaScript · MySQL</span
-                >
-                <h3>IT Handover Management</h3>
-                <p>
-                  Workflow-based IT asset handover module with recipient data,
-                  item details, approvals, status tracking, and operational
-                  reporting.
-                </p>
-                <a href="#contact" class="portfolio-link"
-                  >Discuss the Project <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-
-            <article class="portfolio-card reveal">
-              <img
-                src="public/images/project1.jpg"
-                alt="HRIS leave and permission system"
-                loading="lazy"
-              />
-              <div class="portfolio-overlay">
-                <span class="portfolio-category"
-                  >JavaScript · Laravel · MySQL</span
-                >
-                <h3>HRIS Leave & Permission</h3>
-                <p>
-                  Frontend and validation improvements for leave and permission
-                  workflows, including SLA rules and date compatibility.
-                </p>
-                <a href="#contact" class="portfolio-link"
-                  >Discuss the Project <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-
-            <article class="portfolio-card reveal">
-              <img
-                src="public/images/project1.jpg"
-                alt="Cash advance workflow system"
-                loading="lazy"
-              />
-              <div class="portfolio-overlay">
-                <span class="portfolio-category"
-                  >Web Application · Workflow</span
-                >
-                <h3>Cash Advance Workflow</h3>
-                <p>
-                  Worked on user and manager-side workflows, notifications,
-                  permissions, loading states, and document-related processes.
-                </p>
-                <a href="#contact" class="portfolio-link"
-                  >Discuss the Project <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- TECH STACK -->
       <section class="tech-stack" id="skills">
         <div class="container">
           <div class="section-header reveal">
-            <span class="section-label">Tech Stack</span>
+            <span class="section-label"> Tech Stack </span>
+
             <h2 class="section-title">
-              Tools I <span class="gradient-text">Work With</span>
+              Tools I
+
+              <span class="gradient-text"> Work With </span>
             </h2>
+
             <p class="section-subtitle">
               Technologies I use across development, database work, and frontend
               implementation.
             </p>
           </div>
+
           <div class="tech-grid reveal">
             <div class="tech-item">
-              <i class="fab fa-js-square"></i><span>JavaScript</span>
+              <i class="fab fa-js-square"></i>
+
+              <span> JavaScript </span>
             </div>
+
             <div class="tech-item">
-              <i class="fab fa-laravel"></i><span>Laravel</span>
+              <i class="fab fa-laravel"></i>
+
+              <span> Laravel </span>
             </div>
+
             <div class="tech-item">
-              <i class="fab fa-php"></i><span>PHP</span>
+              <i class="fab fa-php"></i>
+
+              <span> PHP </span>
             </div>
+
             <div class="tech-item">
-              <i class="fas fa-database"></i><span>MySQL</span>
+              <i class="fas fa-database"></i>
+
+              <span> MySQL </span>
             </div>
+
             <div class="tech-item">
-              <i class="fab fa-html5"></i><span>HTML5</span>
+              <i class="fab fa-html5"></i>
+
+              <span> HTML5 </span>
             </div>
+
             <div class="tech-item">
-              <i class="fab fa-css3-alt"></i><span>CSS3</span>
+              <i class="fab fa-css3-alt"></i>
+
+              <span> CSS3 </span>
             </div>
+
             <div class="tech-item">
-              <i class="fab fa-bootstrap"></i><span>Bootstrap</span>
+              <i class="fab fa-bootstrap"></i>
+
+              <span> Bootstrap </span>
             </div>
+
             <div class="tech-item">
-              <i class="fab fa-git-alt"></i><span>Git</span>
+              <i class="fab fa-git-alt"></i>
+
+              <span> Git </span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ABOUT -->
+      <!-- =====================================================
+           ABOUT
+      ====================================================== -->
+
       <section class="section about" id="about">
         <div class="container">
           <div class="about-grid">
+            <!-- Profile -->
             <div class="about-image reveal">
               <div class="about-image-wrapper">
                 <img
-                  src="foto_profil/Christian Johanes.jpg"
+                  src="foto_profil/2.jpg"
                   alt="Christian Johanes"
+                  loading="lazy"
                 />
               </div>
+
               <div class="about-float-card">
                 <div class="number">B.S.</div>
-                <div class="label">Computer<br />Science</div>
+
+                <div class="label">
+                  Computer<br />
+                  Science
+                </div>
               </div>
             </div>
 
+            <!-- Content -->
             <div class="about-content reveal">
-              <span class="section-label">About Me</span>
+              <span class="section-label"> About Me </span>
+
               <h2>
                 Bridging
-                <span class="gradient-text">Business & Technology</span>
+
+                <span class="gradient-text"> Business & Technology </span>
               </h2>
+
               <p>
                 I'm Christian Johanes, a Computer Science graduate from Bina
                 Nusantara University, Jakarta, with a strong interest in web
                 development, UI/UX implementation, database development, and
                 business-oriented IT solutions.
               </p>
+
               <p>
                 In my current role as an IT Developer Intern, I work on web
                 features, UI/UX improvements, frontend and backend development,
@@ -474,40 +523,51 @@
                   <div class="about-feature-icon">
                     <i class="fas fa-code"></i>
                   </div>
+
                   <div>
                     <h4>Clean Development</h4>
+
                     <p>Structured code with maintainability in mind.</p>
                   </div>
                 </div>
+
                 <div class="about-feature">
                   <div class="about-feature-icon">
                     <i class="fas fa-database"></i>
                   </div>
+
                   <div>
                     <h4>Database Focus</h4>
+
                     <p>
                       Comfortable working with SQL and MySQL-backed
                       applications.
                     </p>
                   </div>
                 </div>
+
                 <div class="about-feature">
                   <div class="about-feature-icon">
                     <i class="fas fa-desktop"></i>
                   </div>
+
                   <div>
                     <h4>UI/UX Implementation</h4>
+
                     <p>
                       Building responsive interfaces from business requirements.
                     </p>
                   </div>
                 </div>
+
                 <div class="about-feature">
                   <div class="about-feature-icon">
                     <i class="fas fa-graduation-cap"></i>
                   </div>
+
                   <div>
                     <h4>Continuous Learning</h4>
+
                     <p>
                       Always improving technical and problem-solving skills.
                     </p>
@@ -517,6 +577,7 @@
 
               <a href="#contact" class="btn btn-primary">
                 <i class="fas fa-envelope"></i>
+
                 Let's Work Together
               </a>
             </div>
@@ -524,142 +585,193 @@
         </div>
       </section>
 
-      <!-- EXPERIENCE -->
-      <section class="achievements" id="experience">
+      <!-- =====================================================
+           CASE STUDIES / NOTION
+      ====================================================== -->
+
+      <section class="section notion-section" id="case-studies">
         <div class="container">
+          <!-- Header -->
           <div class="section-header reveal">
-            <span class="section-label">Experience</span>
+            <span class="section-label"> Case Studies </span>
+
             <h2 class="section-title">
-              My <span class="gradient-text">Professional Journey</span>
+              Explore My
+
+              <span class="gradient-text"> Work in Detail </span>
             </h2>
+
             <p class="section-subtitle">
-              A concise overview of the experience and education behind my work.
+              Explore my projects, professional experience, case studies, and
+              technical work in more detail through my portfolio workspace.
             </p>
+
+            <!-- External Button -->
+            <div
+              class="notion-actions"
+              style="margin-top: 28px; display: flex; justify-content: center"
+            >
+              <a
+                href="https://material-platinum-585.notion.site/ebd//3eafa85bf80f80a1b6f7e41a49872ca6"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline"
+              >
+                <i class="fas fa-external-link-alt"></i>
+
+                Open Portfolio
+              </a>
+            </div>
           </div>
 
-          <div class="achievements-grid reveal">
-            <div class="achievement-card">
-              <div class="achievement-icon">
-                <i class="fas fa-briefcase"></i>
-              </div>
-              <h4>IT Developer Intern</h4>
-              <p>
-                PT Interskala Medika Indonesia / PT Prima Indo Medilab · Apr
-                2026 – Present
-              </p>
+          <!-- Notion Card -->
+          <div class="notion-wrapper reveal">
+            <!-- Loading Indicator -->
+            <div class="notion-loading" id="notionLoading">
+              <div class="loader-spinner"></div>
+
+              <span> Loading portfolio... </span>
             </div>
-            <div class="achievement-card">
-              <div class="achievement-icon">
-                <i class="fas fa-university"></i>
-              </div>
-              <h4>Bachelor of Computer Science</h4>
-              <p>
-                Bina Nusantara University, Jakarta · School of Information
-                Systems
-              </p>
-            </div>
-            <div class="achievement-card">
-              <div class="achievement-icon"><i class="fab fa-laravel"></i></div>
-              <h4>Laravel & PHP</h4>
-              <p>
-                Backend development, business modules, workflows, and database
-                integration.
-              </p>
-            </div>
-            <div class="achievement-card">
-              <div class="achievement-icon">
-                <i class="fas fa-database"></i>
-              </div>
-              <h4>SQL & MySQL</h4>
-              <p>
-                Database queries, migrations, relationships, seeders, and
-                application integration.
-              </p>
-            </div>
+
+            <iframe
+              src="https://material-platinum-585.notion.site/ebd//3eafa85bf80f80a1b6f7e41a49872ca6"
+              title="Christian Johanes Portfolio"
+              width="100%"
+              height="850"
+              frameborder="0"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+
+          <!-- Bottom Note -->
+          <div
+            class="notion-note reveal"
+            style="text-align: center; margin-top: 24px"
+          >
+            <p>
+              <i class="fas fa-info-circle"></i>
+
+              More detailed project documentation, experience, and case studies
+              are available inside the portfolio.
+            </p>
           </div>
         </div>
       </section>
 
-      <!-- CTA -->
+      <!-- =====================================================
+           CTA
+      ====================================================== -->
+
       <section class="cta">
         <div class="cta-bg"></div>
+
         <div class="container">
           <div class="cta-content reveal">
             <h2>
-              Have a Project or <span class="gradient-text">Opportunity?</span>
+              Have a Project or
+
+              <span class="gradient-text"> Opportunity? </span>
             </h2>
+
             <p>
               Let's discuss what you're building, what problem needs to be
               solved, and how I can contribute.
             </p>
+
             <div class="cta-buttons">
-              <a href="#contact" class="btn btn-primary"
-                ><i class="fas fa-paper-plane"></i> Get in Touch</a
-              >
-              <a href="#portfolio" class="btn btn-outline"
-                ><i class="fas fa-code"></i> View Projects</a
-              >
+              <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i>
+
+                Get in Touch
+              </a>
+
+              <a href="#case-studies" class="btn btn-outline">
+                <i class="fas fa-folder-open"></i>
+
+                Explore My Work
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CONTACT -->
+      <!-- =====================================================
+           CONTACT
+      ====================================================== -->
+
       <section class="section contact" id="contact">
         <div class="container">
           <div class="section-header reveal">
-            <span class="section-label">Get In Touch</span>
+            <span class="section-label"> Get In Touch </span>
+
             <h2 class="section-title">
-              Let's Talk About <span class="gradient-text">Your Project</span>
+              Let's Talk About
+
+              <span class="gradient-text"> Your Project </span>
             </h2>
+
             <p class="section-subtitle">
               Have an idea, project, or opportunity? Feel free to reach out.
             </p>
           </div>
 
           <div class="contact-grid">
+            <!-- Contact Info -->
             <div class="contact-info reveal">
               <h3>Let's Connect</h3>
+
               <p>
                 I'm open to discussing web development projects, collaboration
                 opportunities, and roles where I can contribute and continue
                 growing.
               </p>
+
               <div class="contact-details">
                 <div class="contact-detail">
                   <div class="contact-detail-icon">
                     <i class="fas fa-envelope"></i>
                   </div>
+
                   <div>
                     <h4>Email</h4>
+
                     <p>chrisjohanes21@gmail.com</p>
                   </div>
                 </div>
+
                 <div class="contact-detail">
                   <div class="contact-detail-icon">
                     <i class="fab fa-whatsapp"></i>
                   </div>
+
                   <div>
                     <h4>WhatsApp</h4>
+
                     <p>+62 821 1191 5723</p>
                   </div>
                 </div>
+
                 <div class="contact-detail">
                   <div class="contact-detail-icon">
                     <i class="fas fa-map-marker-alt"></i>
                   </div>
+
                   <div>
                     <h4>Location</h4>
+
                     <p>Jakarta, Indonesia</p>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- Contact Form -->
             <div class="contact-form-wrapper reveal">
               <form id="contactForm">
                 <div class="form-group">
-                  <label for="name">Full Name</label>
+                  <label for="name"> Full Name </label>
+
                   <input
                     type="text"
                     id="name"
@@ -668,8 +780,10 @@
                     required
                   />
                 </div>
+
                 <div class="form-group">
-                  <label for="email">Email Address</label>
+                  <label for="email"> Email Address </label>
+
                   <input
                     type="email"
                     id="email"
@@ -678,8 +792,10 @@
                     required
                   />
                 </div>
+
                 <div class="form-group">
-                  <label for="subject">Subject</label>
+                  <label for="subject"> Subject </label>
+
                   <input
                     type="text"
                     id="subject"
@@ -687,8 +803,10 @@
                     placeholder="Project / Opportunity"
                   />
                 </div>
+
                 <div class="form-group">
-                  <label for="message">Message</label>
+                  <label for="message"> Message </label>
+
                   <textarea
                     id="message"
                     name="message"
@@ -696,8 +814,10 @@
                     required
                   ></textarea>
                 </div>
+
                 <button type="submit" class="btn btn-primary form-submit">
                   <i class="fas fa-paper-plane"></i>
+
                   Send Message
                 </button>
               </form>
@@ -707,107 +827,172 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
     <footer class="footer">
       <div class="container">
         <div class="footer-grid">
+          <!-- Brand -->
           <div class="footer-brand">
             <a href="#home" class="nav-brand" aria-label="Joh's Stack Home">
-              <span class="brand-main"
-                ><span class="joh">Joh's</span
-                ><span class="stack">Stack</span></span
-              >
-              <span class="tagline">code · create · innovate</span>
+              <span class="brand-main">
+                <span class="joh"> Joh's </span>
+
+                <span class="stack"> Stack </span>
+              </span>
+
+              <span class="tagline"> code · create · innovate </span>
             </a>
+
             <p>
               IT Developer & Web Developer focused on building practical digital
               solutions with Laravel, PHP, JavaScript, and MySQL.
             </p>
+
             <div class="footer-social">
               <a
                 href="https://www.instagram.com/johstack/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                ><i class="fab fa-instagram"></i
-              ></a>
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+
               <a
                 href="https://www.linkedin.com/in/christianjohanes"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+
               <a
                 href="https://github.com/Chrisjohanes"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                ><i class="fab fa-github"></i
-              ></a>
+              >
+                <i class="fab fa-github"></i>
+              </a>
             </div>
           </div>
+
+          <!-- Quick Links -->
           <div class="footer-col">
             <h4>Quick Links</h4>
+
             <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#portfolio">Projects</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#experience">Experience</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li>
+                <a href="#home"> Home </a>
+              </li>
+
+              <li>
+                <a href="#services"> Services </a>
+              </li>
+
+              <li>
+                <a href="#skills"> Tech Stack </a>
+              </li>
+
+              <li>
+                <a href="#about"> About </a>
+              </li>
+
+              <li>
+                <a href="#case-studies"> Case Studies </a>
+              </li>
+
+              <li>
+                <a href="#contact"> Contact </a>
+              </li>
             </ul>
           </div>
+
+          <!-- Core Skills -->
           <div class="footer-col">
             <h4>Core Skills</h4>
+
             <ul>
-              <li><a href="#skills">Laravel / PHP</a></li>
-              <li><a href="#skills">JavaScript</a></li>
-              <li><a href="#skills">MySQL / SQL</a></li>
-              <li><a href="#skills">HTML / CSS</a></li>
-              <li><a href="#skills">UI/UX Implementation</a></li>
+              <li>
+                <a href="#skills"> Laravel / PHP </a>
+              </li>
+
+              <li>
+                <a href="#skills"> JavaScript </a>
+              </li>
+
+              <li>
+                <a href="#skills"> MySQL / SQL </a>
+              </li>
+
+              <li>
+                <a href="#skills"> HTML / CSS </a>
+              </li>
+
+              <li>
+                <a href="#skills"> UI/UX Implementation </a>
+              </li>
             </ul>
           </div>
+
+          <!-- Contact -->
           <div class="footer-col">
             <h4>Contact</h4>
+
             <ul>
               <li>
                 <i
                   class="fas fa-envelope me-2"
                   style="color: var(--accent-primary)"
                 ></i>
+
                 chrisjohanes21@gmail.com
               </li>
+
               <li>
                 <i
                   class="fab fa-whatsapp me-2"
                   style="color: var(--accent-primary)"
                 ></i>
+
                 +62 821-1191-5723
               </li>
+
               <li>
                 <i
                   class="fas fa-map-marker-alt me-2"
                   style="color: var(--accent-primary)"
                 ></i>
+
                 Jakarta, Indonesia
               </li>
             </ul>
           </div>
         </div>
+
+        <!-- Footer Bottom -->
         <div class="footer-bottom">
           <p>&copy; 2026 Joh's Stack. All rights reserved.</p>
+
           <div class="footer-bottom-links">
-            <a href="#home">Back to top</a>
+            <a href="#home"> Back to top </a>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- FLOATING ACTIONS -->
+    <!-- =========================================================
+         FLOATING ACTIONS
+    ========================================================== -->
+
     <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
       <i class="fas fa-chevron-up"></i>
     </button>
+
     <a
       href="https://wa.me/6282111915723?text=Halo%20Christian%2C%20saya%20tertarik%20untuk%20berdiskusi%20mengenai%20project%20web%20development."
       target="_blank"
@@ -816,10 +1001,11 @@
       aria-label="Chat on WhatsApp"
     >
       <i class="fab fa-whatsapp"></i>
-      <span class="wa-tooltip">💬 Chat di WhatsApp</span>
+
+      <span class="wa-tooltip"> 💬 Chat di WhatsApp </span>
     </a>
 
-    <!-- INDEX PAGE SCRIPT: kept local for this first index refactor -->
+    <!-- Main JavaScript -->
     <script src="public/js/main.js"></script>
   </body>
 </html>
