@@ -1,1011 +1,220 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>
-      Joh's Stack | Christian Johanes — IT Developer & Web Developer
-    </title>
-
-    <link rel="icon" type="image/jpeg" href="Joh's Stack.jpg" />
-
-    <!-- SEO Meta Tags -->
-    <meta
-      name="description"
-      content="Christian Johanes — IT Developer and Web Developer specializing in Laravel, PHP, JavaScript, MySQL, and responsive web development."
-    />
-
-    <meta
-      name="keywords"
-      content="Christian Johanes, IT Developer, Web Developer, Laravel Developer, PHP Developer, JavaScript Developer, Jakarta"
-    />
-
-    <meta name="author" content="Christian Johanes" />
-    <meta name="robots" content="index, follow" />
-
-    <link rel="canonical" href="https://chrisjohanes.github.io/joh-stack/" />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Joh's Stack | Christian Johanes" />
-
-    <meta
-      property="og:description"
-      content="Portfolio of Christian Johanes — IT Developer and Web Developer working with Laravel, PHP, JavaScript, and MySQL."
-    />
-
-    <meta
-      property="og:image"
-      content="https://chrisjohanes.github.io/joh-stack/Joh's Stack.jpg"
-    />
-
-    <meta
-      property="og:url"
-      content="https://chrisjohanes.github.io/joh-stack/"
-    />
-
-    <meta property="og:site_name" content="Joh's Stack" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <meta
-      name="twitter:title"
-      content="Joh's Stack | Professional Web Development Services"
-    />
-
-    <meta
-      name="twitter:description"
-      content="Professional freelance web developer specializing in JavaScript, Laravel, PHP."
-    />
-
-    <meta
-      name="twitter:image"
-      content="https://chrisjohanes.github.io/joh-stack/Joh's Stack.jpg"
-    />
-
-    <!-- Fonts -->
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
-      as="style"
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-
-    <!-- Schema.org -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Christian Johanes",
-        "url": "https://chrisjohanes.github.io/joh-stack/",
-        "jobTitle": "IT Developer / Web Developer",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Jakarta",
-          "addressCountry": "ID"
-        },
-        "sameAs": [
-          "https://github.com/Chrisjohanes",
-          "https://www.linkedin.com/in/christianjohanes",
-          "https://www.instagram.com/johstack/"
-        ]
-      }
-    </script>
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-
-  <body>
-    <!-- Skip to Content -->
-    <a href="#main-content" class="skip-link" aria-label="Skip to main content">
-      Skip to content
-    </a>
-
-    <!-- Page Loader -->
-    <div class="page-loader" id="pageLoader" aria-hidden="true">
-      <div class="loader-spinner"></div>
-    </div>
-
-    <!-- Scroll Progress -->
-    <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
-
-    <!-- =========================================================
-         NAVBAR
-    ========================================================== -->
-
-    <nav class="navbar" id="navbar" aria-label="Main navigation">
-      <div class="container">
-        <!-- Brand -->
-        <a href="#home" class="nav-brand" aria-label="Joh's Stack Home">
-          <span class="brand-main">
-            <span class="joh">Joh's</span>
-            <span class="stack">Stack</span>
-          </span>
-
-          <span class="tagline"> code · create · innovate </span>
-        </a>
-
-        <!-- Navigation -->
-        <div class="nav-links" id="navLinks">
-          <a href="#home" class="active"> Home </a>
-
-          <a href="#services"> Services </a>
-
-          <a href="#skills"> Tech Stack </a>
-
-          <a href="#about"> About </a>
-
-          <a href="#case-studies"> Case Studies </a>
-
-          <a href="#contact"> Contact </a>
-        </div>
-
-        <!-- Actions -->
-        <div class="nav-actions">
-          <button
-            class="theme-toggle"
-            id="themeToggle"
-            aria-label="Toggle dark/light mode"
-            title="Toggle theme"
-          >
-            <i class="fas fa-moon" id="themeIcon"></i>
-          </button>
-
-          <a href="#contact" class="btn btn-primary nav-hire">
-            <i class="fas fa-paper-plane"></i>
-            Hire Me
-          </a>
-
-          <button
-            class="nav-toggle"
-            id="navToggle"
-            aria-label="Toggle navigation menu"
-            aria-expanded="false"
-          >
-            <i class="fas fa-bars" id="navIcon"></i>
-          </button>
-        </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8fafc">
+  <meta name="description" content="Christian Johanes — Junior Software Developer focused on full-stack web application development, Angular, ASP.NET Core, Laravel, and database integration.">
+  <meta name="author" content="Christian Johanes">
+  <meta name="keywords" content="Christian Johanes, Junior Software Developer, Full Stack Developer, Angular, ASP.NET Core, C#, Laravel, PHP, PostgreSQL">
+  <link rel="canonical" href="https://chrisjohanes.github.io/joh-stack/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Christian Johanes — Joh's Stack">
+  <meta property="og:description" content="Junior Software Developer building practical and maintainable web applications.">
+  <meta property="og:url" content="https://chrisjohanes.github.io/joh-stack/">
+  <meta property="og:image" content="https://chrisjohanes.github.io/joh-stack/foto_profil/Christian%20Johanes.jpg">
+  <title>Christian Johanes | Joh's Stack</title>
+  <link rel="icon" type="image/jpeg" href="Joh's Stack.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Christian Johanes",
+    "url":"https://chrisjohanes.github.io/joh-stack/",
+    "jobTitle":"Junior Software Developer",
+    "address":{"@type":"PostalAddress","addressLocality":"Jakarta","addressCountry":"ID"},
+    "sameAs":[
+      "https://github.com/Chrisjohanes",
+      "https://www.linkedin.com/in/christianjohanes",
+      "https://www.instagram.com/johstack/"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Joh's Stack home"><span>Joh's</span> Stack<span class="brand-dot">.</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact" class="nav-contact">Contact <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
       </div>
     </nav>
+  </header>
 
-    <div class="nav-overlay" id="navOverlay"></div>
-
-    <!-- =========================================================
-         MAIN CONTENT
-    ========================================================== -->
-
-    <main id="main-content">
-      <!-- =====================================================
-           HERO
-      ====================================================== -->
-
-      <section class="hero" id="home">
-        <div class="hero-bg">
-          <div class="hero-grid"></div>
-
-          <canvas id="particleCanvas" aria-hidden="true"></canvas>
-        </div>
-
-        <div class="container">
-          <div class="hero-content">
-            <!-- Badge -->
-            <div class="hero-badge">
-              <i class="fas fa-code"></i>
-
-              IT Developer · Web Developer
-            </div>
-
-            <!-- Heading -->
-            <h1 class="hero-title">
-              Hi, I'm
-
-              <span class="gradient-text"> Christian Johanes </span>.
-
-              <br />
-
-              I Build
-
-              <span id="typingText" class="gradient-text"></span>
-
-              <span class="typing-cursor"> | </span>
-            </h1>
-
-            <!-- Description -->
-            <p class="hero-subtitle">
-              I build practical, responsive, and maintainable web solutions
-              using Laravel, PHP, JavaScript, MySQL, and modern front-end
-              technologies — with a focus on turning business requirements into
-              reliable digital experiences.
-            </p>
-
-            <!-- Buttons -->
-            <div class="hero-buttons">
-              <a href="#case-studies" class="btn btn-primary">
-                <i class="fas fa-folder-open"></i>
-                Explore My Work
-              </a>
-
-              <a href="#contact" class="btn btn-outline">
-                <i class="fas fa-paper-plane"></i>
-                Let's Connect
-              </a>
-            </div>
-
-            <!-- Stats -->
-            <div class="hero-stats">
-              <div class="hero-stat">
-                <h3 class="counter" data-target="4">0</h3>
-
-                <p>Core Technologies</p>
-              </div>
-
-              <div class="hero-stat">
-                <h3 class="counter" data-target="4">0</h3>
-
-                <p>Key Areas</p>
-              </div>
-
-              <div class="hero-stat">
-                <h3 class="counter" data-target="1">0</h3>
-
-                <p>Professional Role</p>
-              </div>
-            </div>
+  <main id="main">
+    <section class="hero section-shell">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> JUNIOR SOFTWARE DEVELOPER</p>
+          <h1>Building useful digital experiences with <span>clean code.</span></h1>
+          <p class="hero-description">Hi, I'm Christian Johanes. I enjoy turning ideas and business requirements into practical, responsive, and maintainable web applications.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Explore projects <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="button button-secondary" href="mailto:chrisjohanes21@gmail.com">Get in touch</a>
+          </div>
+          <div class="hero-meta">
+            <span><i class="fa-solid fa-location-dot"></i> Jakarta, Indonesia</span>
+            <span><i class="fa-regular fa-envelope"></i> chrisjohanes21@gmail.com</span>
           </div>
         </div>
-      </section>
-
-      <!-- =====================================================
-           SERVICES
-      ====================================================== -->
-
-      <section class="section services" id="services">
-        <div class="container">
-          <div class="section-header reveal">
-            <span class="section-label"> What I Do </span>
-
-            <h2 class="section-title">
-              Building
-
-              <span class="gradient-text"> Practical Digital Solutions </span>
-            </h2>
-
-            <p class="section-subtitle">
-              My work focuses on building and improving web systems, interfaces,
-              and business-oriented applications.
-            </p>
+        <div class="hero-visual">
+          <div class="photo-frame">
+            <img src="foto_profil/Christian%20Johanes.jpg" alt="Portrait of Christian Johanes" fetchpriority="high">
           </div>
-
-          <div class="services-grid">
-            <!-- Service 1 -->
-            <article class="service-card reveal">
-              <div class="service-icon">
-                <i class="fab fa-laravel"></i>
-              </div>
-
-              <h3>Laravel & PHP Development</h3>
-
-              <p>
-                Developing backend logic, modules, workflows, CRUD features, and
-                business applications using Laravel and PHP.
-              </p>
-
-              <div class="service-tags">
-                <span class="service-tag"> Laravel </span>
-
-                <span class="service-tag"> PHP </span>
-
-                <span class="service-tag"> MySQL </span>
-
-                <span class="service-tag"> REST API </span>
-              </div>
-            </article>
-
-            <!-- Service 2 -->
-            <article class="service-card reveal">
-              <div class="service-icon">
-                <i class="fab fa-js-square"></i>
-              </div>
-
-              <h3>JavaScript Development</h3>
-
-              <p>
-                Creating interactive interfaces, dynamic components, validation,
-                data tables, and frontend workflows with JavaScript.
-              </p>
-
-              <div class="service-tags">
-                <span class="service-tag"> JavaScript </span>
-
-                <span class="service-tag"> DOM </span>
-
-                <span class="service-tag"> AJAX </span>
-
-                <span class="service-tag"> ES6+ </span>
-              </div>
-            </article>
-
-            <!-- Service 3 -->
-            <article class="service-card reveal">
-              <div class="service-icon">
-                <i class="fas fa-database"></i>
-              </div>
-
-              <h3>Database & System Development</h3>
-
-              <p>
-                Designing database structures and integrating application logic
-                with MySQL to support reliable business processes.
-              </p>
-
-              <div class="service-tags">
-                <span class="service-tag"> MySQL </span>
-
-                <span class="service-tag"> SQL </span>
-
-                <span class="service-tag"> Migration </span>
-
-                <span class="service-tag"> Seeder </span>
-              </div>
-            </article>
-
-            <!-- Service 4 -->
-            <article class="service-card reveal">
-              <div class="service-icon">
-                <i class="fas fa-layer-group"></i>
-              </div>
-
-              <h3>UI/UX Implementation</h3>
-
-              <p>
-                Translating requirements and designs into responsive interfaces
-                with attention to usability, consistency, and maintainability.
-              </p>
-
-              <div class="service-tags">
-                <span class="service-tag"> HTML5 </span>
-
-                <span class="service-tag"> CSS3 </span>
-
-                <span class="service-tag"> Bootstrap </span>
-
-                <span class="service-tag"> Responsive </span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- =====================================================
-           TECH STACK
-      ====================================================== -->
-
-      <section class="tech-stack" id="skills">
-        <div class="container">
-          <div class="section-header reveal">
-            <span class="section-label"> Tech Stack </span>
-
-            <h2 class="section-title">
-              Tools I
-
-              <span class="gradient-text"> Work With </span>
-            </h2>
-
-            <p class="section-subtitle">
-              Technologies I use across development, database work, and frontend
-              implementation.
-            </p>
-          </div>
-
-          <div class="tech-grid reveal">
-            <div class="tech-item">
-              <i class="fab fa-js-square"></i>
-
-              <span> JavaScript </span>
-            </div>
-
-            <div class="tech-item">
-              <i class="fab fa-laravel"></i>
-
-              <span> Laravel </span>
-            </div>
-
-            <div class="tech-item">
-              <i class="fab fa-php"></i>
-
-              <span> PHP </span>
-            </div>
-
-            <div class="tech-item">
-              <i class="fas fa-database"></i>
-
-              <span> MySQL </span>
-            </div>
-
-            <div class="tech-item">
-              <i class="fab fa-html5"></i>
-
-              <span> HTML5 </span>
-            </div>
-
-            <div class="tech-item">
-              <i class="fab fa-css3-alt"></i>
-
-              <span> CSS3 </span>
-            </div>
-
-            <div class="tech-item">
-              <i class="fab fa-bootstrap"></i>
-
-              <span> Bootstrap </span>
-            </div>
-
-            <div class="tech-item">
-              <i class="fab fa-git-alt"></i>
-
-              <span> Git </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- =====================================================
-           ABOUT
-      ====================================================== -->
-
-      <section class="section about" id="about">
-        <div class="container">
-          <div class="about-grid">
-            <!-- Profile -->
-            <div class="about-image reveal">
-              <div class="about-image-wrapper">
-                <img
-                  src="foto_profil/2.jpg"
-                  alt="Christian Johanes"
-                  loading="lazy"
-                />
-              </div>
-
-              <div class="about-float-card">
-                <div class="number">B.S.</div>
-
-                <div class="label">
-                  Computer<br />
-                  Science
-                </div>
-              </div>
-            </div>
-
-            <!-- Content -->
-            <div class="about-content reveal">
-              <span class="section-label"> About Me </span>
-
-              <h2>
-                Bridging
-
-                <span class="gradient-text"> Business & Technology </span>
-              </h2>
-
-              <p>
-                I'm Christian Johanes, a Computer Science graduate from Bina
-                Nusantara University, Jakarta, with a strong interest in web
-                development, UI/UX implementation, database development, and
-                business-oriented IT solutions.
-              </p>
-
-              <p>
-                In my current role as an IT Developer Intern, I work on web
-                features, UI/UX improvements, frontend and backend development,
-                and modules for business process digitalization. I enjoy turning
-                operational requirements into systems that are clear, usable,
-                and maintainable.
-              </p>
-
-              <div class="about-features">
-                <div class="about-feature">
-                  <div class="about-feature-icon">
-                    <i class="fas fa-code"></i>
-                  </div>
-
-                  <div>
-                    <h4>Clean Development</h4>
-
-                    <p>Structured code with maintainability in mind.</p>
-                  </div>
-                </div>
-
-                <div class="about-feature">
-                  <div class="about-feature-icon">
-                    <i class="fas fa-database"></i>
-                  </div>
-
-                  <div>
-                    <h4>Database Focus</h4>
-
-                    <p>
-                      Comfortable working with SQL and MySQL-backed
-                      applications.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="about-feature">
-                  <div class="about-feature-icon">
-                    <i class="fas fa-desktop"></i>
-                  </div>
-
-                  <div>
-                    <h4>UI/UX Implementation</h4>
-
-                    <p>
-                      Building responsive interfaces from business requirements.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="about-feature">
-                  <div class="about-feature-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                  </div>
-
-                  <div>
-                    <h4>Continuous Learning</h4>
-
-                    <p>
-                      Always improving technical and problem-solving skills.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <a href="#contact" class="btn btn-primary">
-                <i class="fas fa-envelope"></i>
-
-                Let's Work Together
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- =====================================================
-           CASE STUDIES / NOTION
-      ====================================================== -->
-
-      <section class="section notion-section" id="case-studies">
-        <div class="container">
-          <!-- Header -->
-          <div class="section-header reveal">
-            <span class="section-label"> Case Studies </span>
-
-            <h2 class="section-title">
-              Explore My
-
-              <span class="gradient-text"> Work in Detail </span>
-            </h2>
-
-            <p class="section-subtitle">
-              Explore my projects, professional experience, case studies, and
-              technical work in more detail through my portfolio workspace.
-            </p>
-
-            <!-- External Button -->
-            <div
-              class="notion-actions"
-              style="margin-top: 28px; display: flex; justify-content: center"
-            >
-              <a
-                href="https://material-platinum-585.notion.site/ebd//3eafa85bf80f80a1b6f7e41a49872ca6"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-outline"
-              >
-                <i class="fas fa-external-link-alt"></i>
-
-                Open Portfolio
-              </a>
-            </div>
-          </div>
-
-          <!-- Notion Card -->
-          <div class="notion-wrapper reveal">
-            <!-- Loading Indicator -->
-            <div class="notion-loading" id="notionLoading">
-              <div class="loader-spinner"></div>
-
-              <span> Loading portfolio... </span>
-            </div>
-
-            <iframe
-              src="https://material-platinum-585.notion.site/ebd//3eafa85bf80f80a1b6f7e41a49872ca6"
-              title="Christian Johanes Portfolio"
-              width="100%"
-              height="850"
-              frameborder="0"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
-          </div>
-
-          <!-- Bottom Note -->
-          <div
-            class="notion-note reveal"
-            style="text-align: center; margin-top: 24px"
-          >
-            <p>
-              <i class="fas fa-info-circle"></i>
-
-              More detailed project documentation, experience, and case studies
-              are available inside the portfolio.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- =====================================================
-           CTA
-      ====================================================== -->
-
-      <section class="cta">
-        <div class="cta-bg"></div>
-
-        <div class="container">
-          <div class="cta-content reveal">
-            <h2>
-              Have a Project or
-
-              <span class="gradient-text"> Opportunity? </span>
-            </h2>
-
-            <p>
-              Let's discuss what you're building, what problem needs to be
-              solved, and how I can contribute.
-            </p>
-
-            <div class="cta-buttons">
-              <a href="#contact" class="btn btn-primary">
-                <i class="fas fa-paper-plane"></i>
-
-                Get in Touch
-              </a>
-
-              <a href="#case-studies" class="btn btn-outline">
-                <i class="fas fa-folder-open"></i>
-
-                Explore My Work
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- =====================================================
-           CONTACT
-      ====================================================== -->
-
-      <section class="section contact" id="contact">
-        <div class="container">
-          <div class="section-header reveal">
-            <span class="section-label"> Get In Touch </span>
-
-            <h2 class="section-title">
-              Let's Talk About
-
-              <span class="gradient-text"> Your Project </span>
-            </h2>
-
-            <p class="section-subtitle">
-              Have an idea, project, or opportunity? Feel free to reach out.
-            </p>
-          </div>
-
-          <div class="contact-grid">
-            <!-- Contact Info -->
-            <div class="contact-info reveal">
-              <h3>Let's Connect</h3>
-
-              <p>
-                I'm open to discussing web development projects, collaboration
-                opportunities, and roles where I can contribute and continue
-                growing.
-              </p>
-
-              <div class="contact-details">
-                <div class="contact-detail">
-                  <div class="contact-detail-icon">
-                    <i class="fas fa-envelope"></i>
-                  </div>
-
-                  <div>
-                    <h4>Email</h4>
-
-                    <p>chrisjohanes21@gmail.com</p>
-                  </div>
-                </div>
-
-                <div class="contact-detail">
-                  <div class="contact-detail-icon">
-                    <i class="fab fa-whatsapp"></i>
-                  </div>
-
-                  <div>
-                    <h4>WhatsApp</h4>
-
-                    <p>+62 821 1191 5723</p>
-                  </div>
-                </div>
-
-                <div class="contact-detail">
-                  <div class="contact-detail-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                  </div>
-
-                  <div>
-                    <h4>Location</h4>
-
-                    <p>Jakarta, Indonesia</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Contact Form -->
-            <div class="contact-form-wrapper reveal">
-              <form id="contactForm">
-                <div class="form-group">
-                  <label for="name"> Full Name </label>
-
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Your name"
-                    required
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label for="email"> Email Address </label>
-
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="you@example.com"
-                    required
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label for="subject"> Subject </label>
-
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    placeholder="Project / Opportunity"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label for="message"> Message </label>
-
-                  <textarea
-                    id="message"
-                    name="message"
-                    placeholder="Tell me a little about your project or opportunity..."
-                    required
-                  ></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary form-submit">
-                  <i class="fas fa-paper-plane"></i>
-
-                  Send Message
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-grid">
-          <!-- Brand -->
-          <div class="footer-brand">
-            <a href="#home" class="nav-brand" aria-label="Joh's Stack Home">
-              <span class="brand-main">
-                <span class="joh"> Joh's </span>
-
-                <span class="stack"> Stack </span>
-              </span>
-
-              <span class="tagline"> code · create · innovate </span>
-            </a>
-
-            <p>
-              IT Developer & Web Developer focused on building practical digital
-              solutions with Laravel, PHP, JavaScript, and MySQL.
-            </p>
-
-            <div class="footer-social">
-              <a
-                href="https://www.instagram.com/johstack/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/christianjohanes"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-
-              <a
-                href="https://github.com/Chrisjohanes"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-              >
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Quick Links -->
-          <div class="footer-col">
-            <h4>Quick Links</h4>
-
-            <ul>
-              <li>
-                <a href="#home"> Home </a>
-              </li>
-
-              <li>
-                <a href="#services"> Services </a>
-              </li>
-
-              <li>
-                <a href="#skills"> Tech Stack </a>
-              </li>
-
-              <li>
-                <a href="#about"> About </a>
-              </li>
-
-              <li>
-                <a href="#case-studies"> Case Studies </a>
-              </li>
-
-              <li>
-                <a href="#contact"> Contact </a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Core Skills -->
-          <div class="footer-col">
-            <h4>Core Skills</h4>
-
-            <ul>
-              <li>
-                <a href="#skills"> Laravel / PHP </a>
-              </li>
-
-              <li>
-                <a href="#skills"> JavaScript </a>
-              </li>
-
-              <li>
-                <a href="#skills"> MySQL / SQL </a>
-              </li>
-
-              <li>
-                <a href="#skills"> HTML / CSS </a>
-              </li>
-
-              <li>
-                <a href="#skills"> UI/UX Implementation </a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Contact -->
-          <div class="footer-col">
-            <h4>Contact</h4>
-
-            <ul>
-              <li>
-                <i
-                  class="fas fa-envelope me-2"
-                  style="color: var(--accent-primary)"
-                ></i>
-
-                chrisjohanes21@gmail.com
-              </li>
-
-              <li>
-                <i
-                  class="fab fa-whatsapp me-2"
-                  style="color: var(--accent-primary)"
-                ></i>
-
-                +62 821-1191-5723
-              </li>
-
-              <li>
-                <i
-                  class="fas fa-map-marker-alt me-2"
-                  style="color: var(--accent-primary)"
-                ></i>
-
-                Jakarta, Indonesia
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-          <p>&copy; 2026 Joh's Stack. All rights reserved.</p>
-
-          <div class="footer-bottom-links">
-            <a href="#home"> Back to top </a>
-          </div>
+          <div class="floating-note"><span class="note-icon"><i class="fa-solid fa-code"></i></span><span><strong>Build. Learn. Improve.</strong><small>One project at a time.</small></span></div>
+          <div class="visual-decoration" aria-hidden="true"></div>
         </div>
       </div>
-    </footer>
+      <div class="container hero-bottom">
+        <span>FOCUSED ON</span>
+        <div class="focus-list"><span>Frontend Development</span><span>Backend Development</span><span>REST API Integration</span><span>Database</span></div>
+      </div>
+    </section>
 
-    <!-- =========================================================
-         FLOATING ACTIONS
-    ========================================================== -->
+    <section class="section" id="about">
+      <div class="container narrow">
+        <div class="section-heading">
+          <p class="eyebrow">A LITTLE INTRODUCTION</p>
+          <h2>About <span>me</span></h2>
+        </div>
+        <div class="about-copy">
+          <p class="lead">I'm a software developer with a growing focus on full-stack web application development.</p>
+          <p>My project experience includes building user interfaces, integrating frontend applications with REST APIs, implementing authentication flows, working with relational databases, and developing features for business-oriented systems. I value readable code, thoughtful user experiences, and understanding the problem behind every feature.</p>
+          <p>Recently, I've been expanding my work with Angular, TypeScript, C#, ASP.NET Core, and PostgreSQL while continuing to build on my earlier experience with Laravel and PHP.</p>
+        </div>
+      </div>
+    </section>
 
-    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
-      <i class="fas fa-chevron-up"></i>
-    </button>
+    <section class="section section-muted" id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">MY JOURNEY</p>
+          <h2>Experience & <span>learning</span></h2>
+          <p class="section-intro">A snapshot of the areas I've been working on and developing recently.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-top"><span class="tag tag-blue">Current position</span><span class="timeline-date">Current</span></div>
+              <h3>IT Academy Trainee</h3>
+              <p class="timeline-subtitle">AdIns Center of Excellence</p>
+              <p>Currently developing practical software engineering skills through structured technical learning and hands-on application development projects.</p>
+              <p class="timeline-footnote">Current position: IT Academy Trainee at AdIns Center of Excellence.</p></div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-top"><span class="tag">Technical project</span><span class="timeline-date">2026</span></div>
+              <h3>AdIns Academy — CutiApp</h3>
+              <p class="timeline-subtitle">Leave management application · Fase 1</p>
+              <p>Working on a leave management application, including authentication with JWT and refresh tokens, leave-related workflows, and frontend–backend data integration.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <a
-      href="https://wa.me/6282111915723?text=Halo%20Christian%2C%20saya%20tertarik%20untuk%20berdiskusi%20mengenai%20project%20web%20development."
-      target="_blank"
-      rel="noopener noreferrer"
-      class="whatsapp-float"
-      aria-label="Chat on WhatsApp"
-    >
-      <i class="fab fa-whatsapp"></i>
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">SELECTED WORK</p>
+          <h2>Projects I've <span>worked on</span></h2>
+          <p class="section-intro">A selection of practical applications that reflect my development experience and technical growth.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-visual project-finance"><div class="mock-window"><div class="mock-top"><i></i><i></i><i></i><span>FinDirect</span></div><div class="mock-body"><div class="mock-sidebar"></div><div class="mock-content"><b>Loan application</b><div class="mock-line"></div><div class="mock-line short"></div><div class="mock-panels"><i></i><i></i><i></i></div><div class="mock-line"></div></div></div></div></div>
+            <div class="project-body">
+              <div class="project-topline"><span class="tag tag-blue">Full-stack web application</span><span class="project-year">2026</span></div>
+              <h3>FinDirect</h3>
+              <p class="project-subtitle">Multifinance application</p>
+              <p>Developed features for a customer-facing financing application, including authentication, loan application forms, profile management, and address management.</p>
+              <div class="tag-list"><span>Angular</span><span>TypeScript</span><span>ASP.NET Core</span><span>C#</span><span>PostgreSQL</span></div>
+              <ul class="contribution-list">
+                <li>Integrated Angular pages with backend REST APIs.</li>
+                <li>Implemented profile and address update flows.</li>
+                <li>Worked on loan application forms, validation, and request payloads.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-visual project-leave"><div class="leave-preview"><div class="leave-sidebar"><b>CA</b><i></i><i></i><i></i></div><div class="leave-main"><span>LEAVE MANAGEMENT</span><b>My Leave Requests</b><div class="leave-stat-row"><i></i><i></i><i></i></div><div class="leave-table"><i></i><i></i><i></i><i></i></div></div></div></div>
+            <div class="project-body">
+              <div class="project-topline"><span class="tag tag-blue">Full-stack web application</span><span class="project-year">2026</span></div>
+              <h3>CutiApp</h3>
+              <p class="project-subtitle">Employee leave management system</p>
+              <p>A leave management application developed as part of AdIns Academy Fase 1, focused on authentication and leave request workflows.</p>
+              <div class="tag-list"><span>Angular</span><span>TypeScript</span><span>ASP.NET Core</span><span>C#</span><span>PostgreSQL</span><span>JWT</span></div>
+              <ul class="contribution-list">
+                <li>Implemented authentication and refresh-token handling.</li>
+                <li>Worked on GET and POST data flows between frontend and backend.</li>
+                <li>Developed leave-related application workflows.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="project-card project-card-compact">
+            <div class="project-visual project-legacy"><div class="legacy-code"><span>01</span><b>Laravel</b><b>PHP</b><b>MySQL</b><span>CRUD · REST API</span></div></div>
+            <div class="project-body">
+              <div class="project-topline"><span class="tag">Web development</span><span class="project-year">Previous work</span></div>
+              <h3>Laravel & PHP Projects</h3>
+              <p>Earlier hands-on work with web application features, CRUD operations, database-backed workflows, and responsive interfaces.</p>
+              <div class="tag-list"><span>Laravel</span><span>PHP</span><span>MySQL</span><span>Bootstrap</span><span>JavaScript</span></div>
+            </div>
+          </article>
+        </div>
+        <p class="project-disclaimer">Project descriptions focus on my implementation contributions. Repository links can be added to each project when the corresponding public repositories are ready.</p>
+      </div>
+    </section>
 
-      <span class="wa-tooltip"> 💬 Chat di WhatsApp </span>
-    </a>
+    <section class="section section-muted" id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">TOOLS & TECHNOLOGIES</p>
+          <h2>My technical <span>toolkit</span></h2>
+          <p class="section-intro">Technologies I've used across personal, learning, and application development projects.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-group"><div class="skill-icon"><i class="fa-solid fa-display"></i></div><h3>Frontend</h3><p>Angular · TypeScript · JavaScript · HTML5 · CSS3 · Bootstrap</p></article>
+          <article class="skill-group"><div class="skill-icon"><i class="fa-solid fa-server"></i></div><h3>Backend</h3><p>C# · ASP.NET Core · PHP · Laravel · REST API</p></article>
+          <article class="skill-group"><div class="skill-icon"><i class="fa-solid fa-database"></i></div><h3>Database</h3><p>PostgreSQL · MySQL · SQL</p></article>
+          <article class="skill-group"><div class="skill-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div><h3>Tools & workflow</h3><p>Git · GitHub · Visual Studio · VS Code · Swagger</p></article>
+        </div>
+      </div>
+    </section>
 
-    <!-- Main JavaScript -->
-    <script src="public/js/main.js"></script>
-  </body>
+    <section class="section contact-section" id="contact">
+      <div class="container contact-layout">
+        <div>
+          <p class="eyebrow">LET'S CONNECT</p>
+          <h2>Have an opportunity or a project in mind?</h2>
+          <p class="section-intro">I'm open to connecting about junior software development opportunities, collaboration, and interesting web application projects.</p>
+          <a class="button button-primary" href="mailto:chrisjohanes21@gmail.com?subject=Let's%20connect">Send me an email <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:chrisjohanes21@gmail.com"><span class="contact-link-icon"><i class="fa-regular fa-envelope"></i></span><span><small>Email</small><strong>chrisjohanes21@gmail.com</strong></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <a href="https://www.linkedin.com/in/christianjohanes" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon"><i class="fa-brands fa-linkedin-in"></i></span><span><small>LinkedIn</small><strong>christianjohanes</strong></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <a href="https://github.com/Chrisjohanes" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon"><i class="fa-brands fa-github"></i></span><span><small>GitHub</small><strong>Chrisjohanes</strong></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <a href="https://www.instagram.com/johstack/" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon"><i class="fa-brands fa-instagram"></i></span><span><small>Instagram</small><strong>@johstack</strong></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner"><a class="brand" href="#top"><span>Joh's</span> Stack<span class="brand-dot">.</span></a><p>Designed & built by Christian Johanes · <span id="year">2026</span></p><a href="#top" class="back-top">Back to top ↑</a></div>
+  </footer>
+  <script src="public/js/main.js"></script>
+</body>
 </html>
