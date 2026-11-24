@@ -1,220 +1,482 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8fafc">
-  <meta name="description" content="Christian Johanes — Junior Software Developer focused on full-stack web application development, Angular, ASP.NET Core, Laravel, and database integration.">
-  <meta name="author" content="Christian Johanes">
-  <meta name="keywords" content="Christian Johanes, Junior Software Developer, Full Stack Developer, Angular, ASP.NET Core, C#, Laravel, PHP, PostgreSQL">
-  <link rel="canonical" href="https://chrisjohanes.github.io/joh-stack/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Christian Johanes — Joh's Stack">
-  <meta property="og:description" content="Junior Software Developer building practical and maintainable web applications.">
-  <meta property="og:url" content="https://chrisjohanes.github.io/joh-stack/">
-  <meta property="og:image" content="https://chrisjohanes.github.io/joh-stack/foto_profil/Christian%20Johanes.jpg">
-  <title>Christian Johanes | Joh's Stack</title>
-  <link rel="icon" type="image/jpeg" href="Joh's Stack.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Christian Johanes",
-    "url":"https://chrisjohanes.github.io/joh-stack/",
-    "jobTitle":"Junior Software Developer",
-    "address":{"@type":"PostalAddress","addressLocality":"Jakarta","addressCountry":"ID"},
-    "sameAs":[
-      "https://github.com/Chrisjohanes",
-      "https://www.linkedin.com/in/christianjohanes",
-      "https://www.instagram.com/johstack/"
-    ]
-  }
-  </script>
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header" id="top">
-    <nav class="nav container" aria-label="Main navigation">
-      <a class="brand" href="#top" aria-label="Joh's Stack home"><span>Joh's</span> Stack<span class="brand-dot">.</span></a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
-      <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact" class="nav-contact">Contact <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-      </div>
-    </nav>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8fafc" />
+    <meta
+      name="description"
+      content="Christian Johanes — Junior Software Developer focused on full-stack web application development, Angular, ASP.NET Core, Laravel, and database integration."
+    />
+    <meta name="author" content="Christian Johanes" />
+    <meta
+      name="keywords"
+      content="Christian Johanes, Junior Software Developer, Full Stack Developer, Angular, ASP.NET Core, C#, Laravel, PHP, PostgreSQL"
+    />
+    <link rel="canonical" href="https://chrisjohanes.github.io/joh-stack/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Christian Johanes — Joh's Stack" />
+    <meta
+      property="og:description"
+      content="Junior Software Developer building practical and maintainable web applications."
+    />
+    <meta
+      property="og:url"
+      content="https://chrisjohanes.github.io/joh-stack/"
+    />
+    <meta
+      property="og:image"
+      content="https://chrisjohanes.github.io/joh-stack/foto_profil/Christian%20Johanes.jpg"
+    />
+    <title>Christian Johanes | Joh's Stack</title>
+    <link rel="icon" type="image/jpeg" href="Joh's Stack.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Christian Johanes",
+        "url": "https://chrisjohanes.github.io/joh-stack/",
+        "jobTitle": "Junior Software Developer",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Jakarta",
+          "addressCountry": "ID"
+        },
+        "sameAs": [
+          "https://github.com/Chrisjohanes",
+          "https://www.linkedin.com/in/christianjohanes",
+          "https://www.instagram.com/johstack/"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true">
+      <span id="scrollProgress"></span>
+    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" id="top">
+      <nav class="nav container" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="Joh's Stack home"
+          ><span>Joh's</span> Stack<span class="brand-dot">.</span></a
+        >
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="nav-links" id="navLinks">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact" class="nav-contact"
+            >Contact <i class="fa-solid fa-arrow-up-right-from-square"></i
+          ></a>
+        </div>
+      </nav>
+    </header>
 
-  <main id="main">
-    <section class="hero section-shell">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="status-dot"></span> JUNIOR SOFTWARE DEVELOPER</p>
-          <h1>Building useful digital experiences with <span>clean code.</span></h1>
-          <p class="hero-description">Hi, I'm Christian Johanes. I enjoy turning ideas and business requirements into practical, responsive, and maintainable web applications.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#projects">Explore projects <i class="fa-solid fa-arrow-right"></i></a>
-            <a class="button button-secondary" href="mailto:chrisjohanes21@gmail.com">Get in touch</a>
+    <main id="main">
+      <section class="hero section-shell">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">
+              <span class="status-dot"></span> JUNIOR SOFTWARE DEVELOPER
+            </p>
+            <h1>
+              Building useful digital experiences with <span>clean code.</span>
+            </h1>
+            <p class="hero-description">
+              Hi, I'm Christian Johanes. I enjoy turning ideas and business
+              requirements into practical, responsive, and maintainable web
+              applications.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#projects"
+                >Explore projects <i class="fa-solid fa-arrow-right"></i
+              ></a>
+              <a
+                class="button button-secondary"
+                href="mailto:chrisjohanes21@gmail.com"
+                >Get in touch</a
+              >
+            </div>
+            <div class="hero-meta">
+              <span
+                ><i class="fa-solid fa-location-dot"></i> Jakarta,
+                Indonesia</span
+              >
+              <span
+                ><i class="fa-regular fa-envelope"></i>
+                chrisjohanes21@gmail.com</span
+              >
+            </div>
           </div>
-          <div class="hero-meta">
-            <span><i class="fa-solid fa-location-dot"></i> Jakarta, Indonesia</span>
-            <span><i class="fa-regular fa-envelope"></i> chrisjohanes21@gmail.com</span>
+          <div class="hero-visual">
+            <div class="photo-frame">
+              <img
+                src="foto_profil/2.jpg"
+                alt="Portrait of Christian Johanes"
+                fetchpriority="high"
+              />
+            </div>
+            <div class="floating-note">
+              <span class="note-icon"><i class="fa-solid fa-code"></i></span
+              ><span
+                ><strong>Build. Learn. Improve.</strong
+                ><small>One project at a time.</small></span
+              >
+            </div>
+            <div class="visual-decoration" aria-hidden="true"></div>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="photo-frame">
-            <img src="foto_profil/Christian%20Johanes.jpg" alt="Portrait of Christian Johanes" fetchpriority="high">
+        <div class="container hero-bottom">
+          <span>FOCUSED ON</span>
+          <div class="focus-list">
+            <span>Frontend Development</span><span>Backend Development</span
+            ><span>REST API Integration</span><span>Database</span>
           </div>
-          <div class="floating-note"><span class="note-icon"><i class="fa-solid fa-code"></i></span><span><strong>Build. Learn. Improve.</strong><small>One project at a time.</small></span></div>
-          <div class="visual-decoration" aria-hidden="true"></div>
         </div>
-      </div>
-      <div class="container hero-bottom">
-        <span>FOCUSED ON</span>
-        <div class="focus-list"><span>Frontend Development</span><span>Backend Development</span><span>REST API Integration</span><span>Database</span></div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section" id="about">
-      <div class="container narrow">
-        <div class="section-heading">
-          <p class="eyebrow">A LITTLE INTRODUCTION</p>
-          <h2>About <span>me</span></h2>
+      <section class="section" id="about">
+        <div class="container narrow">
+          <div class="section-heading">
+            <p class="eyebrow">A LITTLE INTRODUCTION</p>
+            <h2>About <span>me</span></h2>
+          </div>
+          <div class="about-copy">
+            <p class="lead">
+              I'm a software developer with a growing focus on full-stack web
+              application development.
+            </p>
+            <p>
+              My project experience includes building user interfaces,
+              integrating frontend applications with REST APIs, implementing
+              authentication flows, working with relational databases, and
+              developing features for business-oriented systems. I value
+              readable code, thoughtful user experiences, and understanding the
+              problem behind every feature.
+            </p>
+            <p>
+              Recently, I've been expanding my work with Angular, TypeScript,
+              C#, ASP.NET Core, and PostgreSQL while continuing to build on my
+              earlier experience with Laravel and PHP.
+            </p>
+          </div>
         </div>
-        <div class="about-copy">
-          <p class="lead">I'm a software developer with a growing focus on full-stack web application development.</p>
-          <p>My project experience includes building user interfaces, integrating frontend applications with REST APIs, implementing authentication flows, working with relational databases, and developing features for business-oriented systems. I value readable code, thoughtful user experiences, and understanding the problem behind every feature.</p>
-          <p>Recently, I've been expanding my work with Angular, TypeScript, C#, ASP.NET Core, and PostgreSQL while continuing to build on my earlier experience with Laravel and PHP.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section section-muted" id="experience">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">MY JOURNEY</p>
-          <h2>Experience & <span>learning</span></h2>
-          <p class="section-intro">A snapshot of the areas I've been working on and developing recently.</p>
+      <section class="section section-muted" id="experience">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">MY JOURNEY</p>
+            <h2>Experience & <span>learning</span></h2>
+            <p class="section-intro">
+              A snapshot of the areas I've been working on and developing
+              recently.
+            </p>
+          </div>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="timeline-top">
+                  <span class="tag tag-blue">Current position</span
+                  ><span class="timeline-date">Current</span>
+                </div>
+                <h3>IT Academy Trainee</h3>
+                <p class="timeline-subtitle">AdIns Center of Excellence</p>
+                <p>
+                  Currently developing practical software engineering skills
+                  through structured technical learning and hands-on application
+                  development projects.
+                </p>
+                <p class="timeline-footnote">
+                  Current position: IT Academy Trainee at AdIns Center of
+                  Excellence.
+                </p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="timeline-top">
+                  <span class="tag">Technical project</span
+                  ><span class="timeline-date">2026</span>
+                </div>
+                <h3>AdIns Academy — CutiApp</h3>
+                <p class="timeline-subtitle">
+                  Leave management application · Fase 1
+                </p>
+                <p>
+                  Working on a leave management application, including
+                  authentication with JWT and refresh tokens, leave-related
+                  workflows, and frontend–backend data integration.
+                </p>
+              </div>
+            </article>
+          </div>
         </div>
-        <div class="timeline">
-          <article class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-top"><span class="tag tag-blue">Current position</span><span class="timeline-date">Current</span></div>
-              <h3>IT Academy Trainee</h3>
-              <p class="timeline-subtitle">AdIns Center of Excellence</p>
-              <p>Currently developing practical software engineering skills through structured technical learning and hands-on application development projects.</p>
-              <p class="timeline-footnote">Current position: IT Academy Trainee at AdIns Center of Excellence.</p></div>
-          </article>
-          <article class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-top"><span class="tag">Technical project</span><span class="timeline-date">2026</span></div>
-              <h3>AdIns Academy — CutiApp</h3>
-              <p class="timeline-subtitle">Leave management application · Fase 1</p>
-              <p>Working on a leave management application, including authentication with JWT and refresh tokens, leave-related workflows, and frontend–backend data integration.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">SELECTED WORK</p>
-          <h2>Projects I've <span>worked on</span></h2>
-          <p class="section-intro">A selection of practical applications that reflect my development experience and technical growth.</p>
+      <section class="section" id="projects">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">SELECTED WORK</p>
+            <h2>Projects I've <span>worked on</span></h2>
+            <p class="section-intro">
+              A selection of practical applications that reflect my development
+              experience and technical growth.
+            </p>
+          </div>
+          <div class="project-grid">
+            <article class="project-card">
+              <div class="project-visual project-finance">
+                <div class="mock-window">
+                  <div class="mock-top">
+                    <i></i><i></i><i></i><span>FinDirect</span>
+                  </div>
+                  <div class="mock-body">
+                    <div class="mock-sidebar"></div>
+                    <div class="mock-content">
+                      <b>Loan application</b>
+                      <div class="mock-line"></div>
+                      <div class="mock-line short"></div>
+                      <div class="mock-panels"><i></i><i></i><i></i></div>
+                      <div class="mock-line"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-topline">
+                  <span class="tag tag-blue">Full-stack web application</span
+                  ><span class="project-year">2026</span>
+                </div>
+                <h3>FinDirect</h3>
+                <p class="project-subtitle">Multifinance application</p>
+                <p>
+                  Developed features for a customer-facing financing
+                  application, including authentication, loan application forms,
+                  profile management, and address management.
+                </p>
+                <div class="tag-list">
+                  <span>Angular</span><span>TypeScript</span
+                  ><span>ASP.NET Core</span><span>C#</span
+                  ><span>PostgreSQL</span>
+                </div>
+                <ul class="contribution-list">
+                  <li>Integrated Angular pages with backend REST APIs.</li>
+                  <li>Implemented profile and address update flows.</li>
+                  <li>
+                    Worked on loan application forms, validation, and request
+                    payloads.
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <article class="project-card">
+              <div class="project-visual project-leave">
+                <div class="leave-preview">
+                  <div class="leave-sidebar">
+                    <b>CA</b><i></i><i></i><i></i>
+                  </div>
+                  <div class="leave-main">
+                    <span>LEAVE MANAGEMENT</span><b>My Leave Requests</b>
+                    <div class="leave-stat-row"><i></i><i></i><i></i></div>
+                    <div class="leave-table"><i></i><i></i><i></i><i></i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-topline">
+                  <span class="tag tag-blue">Full-stack web application</span
+                  ><span class="project-year">2026</span>
+                </div>
+                <h3>CutiApp</h3>
+                <p class="project-subtitle">Employee leave management system</p>
+                <p>
+                  A leave management application developed as part of AdIns
+                  Academy Fase 1, focused on authentication and leave request
+                  workflows.
+                </p>
+                <div class="tag-list">
+                  <span>Angular</span><span>TypeScript</span
+                  ><span>ASP.NET Core</span><span>C#</span
+                  ><span>PostgreSQL</span><span>JWT</span>
+                </div>
+                <ul class="contribution-list">
+                  <li>
+                    Implemented authentication and refresh-token handling.
+                  </li>
+                  <li>
+                    Worked on GET and POST data flows between frontend and
+                    backend.
+                  </li>
+                  <li>Developed leave-related application workflows.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="project-card project-card-compact">
+              <div class="project-visual project-legacy">
+                <div class="legacy-code">
+                  <span>01</span><b>Laravel</b><b>PHP</b><b>MySQL</b
+                  ><span>CRUD · REST API</span>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-topline">
+                  <span class="tag">Web development</span
+                  ><span class="project-year">Previous work</span>
+                </div>
+                <h3>Laravel & PHP Projects</h3>
+                <p>
+                  Earlier hands-on work with web application features, CRUD
+                  operations, database-backed workflows, and responsive
+                  interfaces.
+                </p>
+                <div class="tag-list">
+                  <span>Laravel</span><span>PHP</span><span>MySQL</span
+                  ><span>Bootstrap</span><span>JavaScript</span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <p class="project-disclaimer">
+            Project descriptions focus on my implementation contributions.
+            Repository links can be added to each project when the corresponding
+            public repositories are ready.
+          </p>
         </div>
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-visual project-finance"><div class="mock-window"><div class="mock-top"><i></i><i></i><i></i><span>FinDirect</span></div><div class="mock-body"><div class="mock-sidebar"></div><div class="mock-content"><b>Loan application</b><div class="mock-line"></div><div class="mock-line short"></div><div class="mock-panels"><i></i><i></i><i></i></div><div class="mock-line"></div></div></div></div></div>
-            <div class="project-body">
-              <div class="project-topline"><span class="tag tag-blue">Full-stack web application</span><span class="project-year">2026</span></div>
-              <h3>FinDirect</h3>
-              <p class="project-subtitle">Multifinance application</p>
-              <p>Developed features for a customer-facing financing application, including authentication, loan application forms, profile management, and address management.</p>
-              <div class="tag-list"><span>Angular</span><span>TypeScript</span><span>ASP.NET Core</span><span>C#</span><span>PostgreSQL</span></div>
-              <ul class="contribution-list">
-                <li>Integrated Angular pages with backend REST APIs.</li>
-                <li>Implemented profile and address update flows.</li>
-                <li>Worked on loan application forms, validation, and request payloads.</li>
-              </ul>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-visual project-leave"><div class="leave-preview"><div class="leave-sidebar"><b>CA</b><i></i><i></i><i></i></div><div class="leave-main"><span>LEAVE MANAGEMENT</span><b>My Leave Requests</b><div class="leave-stat-row"><i></i><i></i><i></i></div><div class="leave-table"><i></i><i></i><i></i><i></i></div></div></div></div>
-            <div class="project-body">
-              <div class="project-topline"><span class="tag tag-blue">Full-stack web application</span><span class="project-year">2026</span></div>
-              <h3>CutiApp</h3>
-              <p class="project-subtitle">Employee leave management system</p>
-              <p>A leave management application developed as part of AdIns Academy Fase 1, focused on authentication and leave request workflows.</p>
-              <div class="tag-list"><span>Angular</span><span>TypeScript</span><span>ASP.NET Core</span><span>C#</span><span>PostgreSQL</span><span>JWT</span></div>
-              <ul class="contribution-list">
-                <li>Implemented authentication and refresh-token handling.</li>
-                <li>Worked on GET and POST data flows between frontend and backend.</li>
-                <li>Developed leave-related application workflows.</li>
-              </ul>
-            </div>
-          </article>
-          <article class="project-card project-card-compact">
-            <div class="project-visual project-legacy"><div class="legacy-code"><span>01</span><b>Laravel</b><b>PHP</b><b>MySQL</b><span>CRUD · REST API</span></div></div>
-            <div class="project-body">
-              <div class="project-topline"><span class="tag">Web development</span><span class="project-year">Previous work</span></div>
-              <h3>Laravel & PHP Projects</h3>
-              <p>Earlier hands-on work with web application features, CRUD operations, database-backed workflows, and responsive interfaces.</p>
-              <div class="tag-list"><span>Laravel</span><span>PHP</span><span>MySQL</span><span>Bootstrap</span><span>JavaScript</span></div>
-            </div>
-          </article>
-        </div>
-        <p class="project-disclaimer">Project descriptions focus on my implementation contributions. Repository links can be added to each project when the corresponding public repositories are ready.</p>
-      </div>
-    </section>
+      </section>
 
-    <section class="section section-muted" id="skills">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">TOOLS & TECHNOLOGIES</p>
-          <h2>My technical <span>toolkit</span></h2>
-          <p class="section-intro">Technologies I've used across personal, learning, and application development projects.</p>
+      <section class="section section-muted" id="skills">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">TOOLS & TECHNOLOGIES</p>
+            <h2>My technical <span>toolkit</span></h2>
+            <p class="section-intro">
+              Technologies I've used across personal, learning, and application
+              development projects.
+            </p>
+          </div>
+          <div class="skills-grid">
+            <article class="skill-group">
+              <div class="skill-icon"><i class="fa-solid fa-display"></i></div>
+              <h3>Frontend</h3>
+              <p>
+                Angular · TypeScript · JavaScript · HTML5 · CSS3 · Bootstrap
+              </p>
+            </article>
+            <article class="skill-group">
+              <div class="skill-icon"><i class="fa-solid fa-server"></i></div>
+              <h3>Backend</h3>
+              <p>C# · ASP.NET Core · PHP · Laravel · REST API</p>
+            </article>
+            <article class="skill-group">
+              <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
+              <h3>Database</h3>
+              <p>PostgreSQL · MySQL · SQL</p>
+            </article>
+            <article class="skill-group">
+              <div class="skill-icon">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+              </div>
+              <h3>Tools & workflow</h3>
+              <p>Git · GitHub · Visual Studio · VS Code · Swagger</p>
+            </article>
+          </div>
         </div>
-        <div class="skills-grid">
-          <article class="skill-group"><div class="skill-icon"><i class="fa-solid fa-display"></i></div><h3>Frontend</h3><p>Angular · TypeScript · JavaScript · HTML5 · CSS3 · Bootstrap</p></article>
-          <article class="skill-group"><div class="skill-icon"><i class="fa-solid fa-server"></i></div><h3>Backend</h3><p>C# · ASP.NET Core · PHP · Laravel · REST API</p></article>
-          <article class="skill-group"><div class="skill-icon"><i class="fa-solid fa-database"></i></div><h3>Database</h3><p>PostgreSQL · MySQL · SQL</p></article>
-          <article class="skill-group"><div class="skill-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div><h3>Tools & workflow</h3><p>Git · GitHub · Visual Studio · VS Code · Swagger</p></article>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section contact-section" id="contact">
-      <div class="container contact-layout">
-        <div>
-          <p class="eyebrow">LET'S CONNECT</p>
-          <h2>Have an opportunity or a project in mind?</h2>
-          <p class="section-intro">I'm open to connecting about junior software development opportunities, collaboration, and interesting web application projects.</p>
-          <a class="button button-primary" href="mailto:chrisjohanes21@gmail.com?subject=Let's%20connect">Send me an email <i class="fa-solid fa-arrow-right"></i></a>
+      <section class="section contact-section" id="contact">
+        <div class="container contact-layout">
+          <div>
+            <p class="eyebrow">LET'S CONNECT</p>
+            <h2>Have an opportunity or a project in mind?</h2>
+            <p class="section-intro">
+              I'm open to connecting about junior software development
+              opportunities, collaboration, and interesting web application
+              projects.
+            </p>
+            <a
+              class="button button-primary"
+              href="mailto:chrisjohanes21@gmail.com?subject=Let's%20connect"
+              >Send me an email <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:chrisjohanes21@gmail.com"
+              ><span class="contact-link-icon"
+                ><i class="fa-regular fa-envelope"></i></span
+              ><span
+                ><small>Email</small
+                ><strong>chrisjohanes21@gmail.com</strong></span
+              ><i class="fa-solid fa-arrow-up-right-from-square"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/christianjohanes"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span class="contact-link-icon"
+                ><i class="fa-brands fa-linkedin-in"></i></span
+              ><span
+                ><small>LinkedIn</small><strong>christianjohanes</strong></span
+              ><i class="fa-solid fa-arrow-up-right-from-square"></i
+            ></a>
+            <a
+              href="https://github.com/Chrisjohanes"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span class="contact-link-icon"
+                ><i class="fa-brands fa-github"></i></span
+              ><span><small>GitHub</small><strong>Chrisjohanes</strong></span
+              ><i class="fa-solid fa-arrow-up-right-from-square"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/johstack/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><span class="contact-link-icon"
+                ><i class="fa-brands fa-instagram"></i></span
+              ><span><small>Instagram</small><strong>@johstack</strong></span
+              ><i class="fa-solid fa-arrow-up-right-from-square"></i
+            ></a>
+          </div>
         </div>
-        <div class="contact-links">
-          <a href="mailto:chrisjohanes21@gmail.com"><span class="contact-link-icon"><i class="fa-regular fa-envelope"></i></span><span><small>Email</small><strong>chrisjohanes21@gmail.com</strong></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-          <a href="https://www.linkedin.com/in/christianjohanes" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon"><i class="fa-brands fa-linkedin-in"></i></span><span><small>LinkedIn</small><strong>christianjohanes</strong></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-          <a href="https://github.com/Chrisjohanes" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon"><i class="fa-brands fa-github"></i></span><span><small>GitHub</small><strong>Chrisjohanes</strong></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-          <a href="https://www.instagram.com/johstack/" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon"><i class="fa-brands fa-instagram"></i></span><span><small>Instagram</small><strong>@johstack</strong></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner"><a class="brand" href="#top"><span>Joh's</span> Stack<span class="brand-dot">.</span></a><p>Designed & built by Christian Johanes · <span id="year">2026</span></p><a href="#top" class="back-top">Back to top ↑</a></div>
-  </footer>
-  <script src="public/js/main.js"></script>
-</body>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="brand" href="#top"
+          ><span>Joh's</span> Stack<span class="brand-dot">.</span></a
+        >
+        <p>
+          Designed & built by Christian Johanes · <span id="year">2026</span>
+        </p>
+        <a href="#top" class="back-top">Back to top ↑</a>
+      </div>
+    </footer>
+    <a class="floating-top" href="#top" aria-label="Back to top"
+      ><i class="fa-solid fa-arrow-up"></i
+    ></a>
+    <script src="public/js/main.js"></script>
+  </body>
 </html>
